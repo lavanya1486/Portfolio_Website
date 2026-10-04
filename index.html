@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#070b17">
+  <meta name="description" content="Lavanya Pandit — B.Tech Computer Science student at VIT Bhopal focused on software engineering, backend development, AI, and impactful applications.">
+  <title>Lavanya Pandit | Software Engineering • AI • Backend</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <div id="progress"></div>
+  <div id="glow"></div>
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="#top" class="brand" aria-label="Lavanya Pandit Home">
+        <span class="brand-mark">L</span>
+        <span>Lavanya Pandit</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <a href="#contact" class="nav-cta">Let's Talk</a>
+    </div>
+  </nav>
+
+<!-- Replace your whole <header class="hero" id="top"> ... </header> block with this -->
+<header class="hero" id="top">
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <h1>
+        <span class="greet">Hi, I'm</span>
+        <span class="highlight name">Lavanya<br>Pandit</span>
+      </h1>
+
+      <p class="roles">
+        Currently exploring <b id="role"></b><i></i>
+      </p>
+
+      <p class="hero-sub">
+        Welcome to my little corner of the digital world. I’m Lavanya, a Computer Science student at VIT Bhopal who loves turning ideas into experiences that are not only functional, but meaningful and beautiful.
+
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#projects">View Projects</a>
+        <a class="btn btn-secondary" href="assets/resume/Lavanya_Pandit_Resume.pdf" target="_blank" rel="noreferrer">View Resume</a>
+      </div>
+
+      <div class="hero-social">
+        <a href="https://github.com/lavanya1486" target="_blank" rel="noreferrer">GitHub</a>
+        <a href="https://www.linkedin.com/in/YOUR_USERNAME" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a href="mailto:YOUR_EMAIL@example.com">Email</a>
+      </div>
+    </div>
+
+    <div class="visual-wrap hero-profile-wrap">
+      <div class="hero-profile" aria-label="Portrait of Lavanya Pandit">
+        <div class="profile-aura"></div>
+        <div class="profile-orbit orbit-one"></div>
+        <div class="profile-orbit orbit-two"></div>
+
+        <div class="profile-frame">
+          <img src="assets/images/lavanya-pfp.png" alt="Lavanya Pandit" class="hero-profile-image">
+        </div>
+
+        <div class="profile-chip chip-top">
+          <span class="chip-dot"></span> Software + AI
+        </div>
+
+        <div class="profile-card">
+          <span class="mini-tag">Now building</span>
+          <strong>CareMate</strong>
+          <small>Java · Spring Boot · PostgreSQL</small>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <a class="scroll-cue" href="#about" aria-label="Scroll to About section"><span></span></a>
+</header>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="track" id="track"></div>
+  </div>
+
+  <main>
+    <section class="section" id="about">
+      <div class="container about-grid">
+        <div class="about-visual-panel">
+          <div class="scene about-scene" aria-label="3D portfolio highlights">
+            <div class="ring"></div>
+            <div class="orb one"></div>
+            <div class="orb two"></div>
+
+            <div class="floating-card card-a">
+              <span class="mini-tag">Building</span>
+              <h3>CareMate</h3>
+              <p>
+                An elderly-care application with medicine scheduling,
+                appointments, notifications, and AI-assisted support.
+              </p>
+              <div class="stack">
+                <span>Java</span>
+                <span>Spring Boot</span>
+                <span>PostgreSQL</span>
+              </div>
+            </div>
+
+            <div class="floating-card card-b">
+              <span class="mini-tag">Focus</span>
+              <h3>Software + AI</h3>
+              <p>
+                Strengthening backend engineering, DSA, AI integration,
+                and real-world application development.
+              </p>
+              <div class="stack">
+                <span>Python</span>
+                <span>Java</span>
+                <span>AI</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-copy">
+          <span class="eyebrow">About Me</span>
+
+          <h2>Learning by building, solving, and shipping.</h2>
+
+          <p>
+            I'm a third-year B.Tech Computer Science student at VIT Bhopal
+            with a strong interest in software engineering, backend development,
+            artificial intelligence, and practical problem solving.
+          </p>
+
+          <p>
+            I enjoy taking an idea from concept to implementation while
+            continuously improving my understanding of data structures,
+            algorithms, databases, computer networks, object-oriented programming,
+            and modern application development.
+          </p>
+
+          <p>
+            My current focus is building projects that combine strong engineering
+            fundamentals with useful real-world experiences.
+          </p>
+
+          <div class="facts">
+            <div class="fact">
+              <strong>CGPA</strong>
+              <span>8.76/10</span>
+            </div>
+            <div class="fact">
+              <strong>17+</strong>
+              <span>Certificates and Projects</span>
+            </div>
+            <div class="fact">
+              <strong>DSA</strong>
+              <span>Core problem-solving focus</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Skills</span>
+          <h2>Technologies and foundations I'm building with.</h2>
+          <p>
+            A growing technical toolkit covering programming, backend systems,
+            databases, Android development, AI, and core computer science.
+          </p>
+        </div>
+
+        <div class="skills-grid">
+          <article class="skill-card">
+            <div class="skill-icon">☕</div>
+            <h3>Programming</h3>
+            <ul>
+              <li>Java</li>
+              <li>Python</li>
+              <li>DSA</li>
+              <li>OOP</li>
+              <li>Problem Solving</li>
+            </ul>
+          </article>
+
+          <article class="skill-card">
+            <div class="skill-icon">⚙️</div>
+            <h3>Backend & Database</h3>
+            <ul>
+              <li>Spring Boot</li>
+              <li>REST APIs</li>
+              <li>PostgreSQL</li>
+              <li>SQL</li>
+              <li>Maven</li>
+            </ul>
+          </article>
+
+          <article class="skill-card">
+            <div class="skill-icon">🤖</div>
+            <h3>AI / Development</h3>
+            <ul>
+              <li>AI Integration</li>
+              <li>Python</li>
+              <li>Android</li>
+              <li>Machine Learning</li>
+              <li>Automation</li>
+            </ul>
+          </article>
+
+          <article class="skill-card">
+            <div class="skill-icon">🛠️</div>
+            <h3>Tools & CS</h3>
+            <ul>
+              <li>Git</li>
+              <li>GitHub</li>
+              <li>Postman</li>
+              <li>Computer Networks</li>
+              <li>DBMS</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Projects</span>
+          <h2>Projects built around real problems.</h2>
+          <p>
+            Selected work focused on practical applications, backend engineering,
+            user experience, and meaningful technology.
+          </p>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card featured-project">
+            <div class="project-visual project-image-wrap">
+              <img class="project-image" src="assets/images/projects/caremate.svg" alt="CareMate project interface preview">
+            </div>
+
+            <div class="project-meta">
+              <span class="pill">Featured • AI + Android</span>
+              <span>2026</span>
+            </div>
+
+            <h3>CareMate</h3>
+
+            <p>
+              An elderly-care management application designed to help family
+              members manage medicine schedules, appointments, reminders,
+              elderly profiles, and AI-assisted care support remotely.
+            </p>
+
+            <div class="project-highlights">
+              <span>Medicine Scheduling</span>
+              <span>Appointments</span>
+              <span>Notifications</span>
+              <span>AI Assistant</span>
+            </div>
+
+            <div class="project-links">
+              <a href="#" aria-label="CareMate GitHub link">GitHub</a>
+              <span>Java • Spring Boot • PostgreSQL • Android</span>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-visual project-image-wrap">
+              <img class="project-image" src="assets/images/projects/windows-planner.svg" alt="Windows Planner project interface preview">
+            </div>
+
+            <div class="project-meta">
+              <span class="pill">Web / Software</span>
+              <span>2026</span>
+            </div>
+
+            <h3>Windows Planner</h3>
+
+            <p>
+              A desktop productivity application concept focused on planning,
+              persistent desktop widgets, focus management, and reducing
+              distractions while studying or working.
+            </p>
+
+            <div class="project-links">
+              <a href="#" aria-label="Windows Planner project link">Project</a>
+              <span>Desktop • Productivity • Systems</span>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-visual project-image-wrap">
+              <img class="project-image" src="assets/images/projects/acm-vit.svg" alt="ACM VIT Bhopal website project preview">
+            </div>
+
+            <div class="project-meta">
+              <span class="pill">Campus / Web</span>
+              <span>2026</span>
+            </div>
+
+            <h3>ACM VIT Bhopal Website</h3>
+
+            <p>
+              A creative 3D virtual-tech-campus website concept for showcasing
+              ACM activities, team members, events, projects, and the chapter's
+              technology community.
+            </p>
+
+            <div class="project-links">
+              <a href="#" aria-label="ACM website project link">Project</a>
+              <span>3D UI • Web • Interactive Design</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="experience">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Leadership &amp; Experience</span>
+          <h2>Learning beyond the classroom.</h2>
+          <p>
+            Technical, creative, and community-focused roles that have helped
+            me work with teams and contribute to campus initiatives.
+          </p>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline-card">
+            <h3>ACM VIT Bhopal</h3>
+            <div class="role">Technical Team Core Member</div>
+            <p>
+              Contributing to technical initiatives, development work, and
+              technology-focused activities within the ACM student chapter.
+            </p>
+          </article>
+
+          <article class="timeline-card">
+            <h3>Android Club — VIT Bhopal</h3>
+            <div class="role">Design Team Lead</div>
+            <p>
+              Leading design-oriented work for Android Club initiatives,
+              technical events, promotional assets, and student engagement.
+            </p>
+          </article>
+
+          <article class="timeline-card">
+            <h3>Nature & Trekking Club</h3>
+            <div class="role">Event Management Team Core Member</div>
+            <p>
+              Supporting event planning, coordination, execution, and
+              team collaboration for campus activities.
+            </p>
+          </article>
+
+          <article class="timeline-card">
+            <h3>Unnat Bharat Abhiyan</h3>
+            <div class="role">Volunteer</div>
+            <p>
+              Participating in community-oriented initiatives and activities
+              connected with social impact and outreach.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="certifications">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Certifications</span>
+          <h2>Continuous learning across technology.</h2>
+          <p>
+            Selected certifications and learning programs supporting my
+            software engineering and technology foundations.
+          </p>
+        </div>
+
+        <div class="cert-grid">
+          <article class="cert-card">
+            <span class="cert-number">01</span>
+            <h3>The Bits and Bytes of Computer Networking</h3>
+            <p>Google • Issued November 2025</p>
+          </article>
+
+          <article class="cert-card">
+            <span class="cert-number">02</span>
+            <h3>ServiceNow Virtual Internship Program</h3>
+            <p>AICTE + SmartBridge • AI, workflows, testing & reporting</p>
+          </article>
+
+          <article class="cert-card">
+            <span class="cert-number">03</span>
+            <h3>Programming in Java</h3>
+            <p>Vityarthi • Java programming foundations</p>
+          </article>
+
+          <article class="cert-card">
+            <span class="cert-number">04</span>
+            <h3>Python Essentials</h3>
+            <p>Vityarthi • Python programming foundations</p>
+          </article>
+
+          <article class="cert-card">
+            <span class="cert-number">05</span>
+            <h3>Fundamentals in AI and ML</h3>
+            <p>Vityarthi • Artificial Intelligence & Machine Learning</p>
+          </article>
+
+          <article class="cert-card">
+            <span class="cert-number">06</span>
+            <h3>Marketing Analytics</h3>
+            <p>NPTEL • Score: 94%</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="contact-box">
+          <div>
+            <span class="eyebrow">Contact</span>
+
+            <h2>Let's build something meaningful.</h2>
+
+            <p>
+              I'm currently looking for internship opportunities, software
+              development roles, and collaborative projects where I can
+              contribute, learn, and build useful technology.
+            </p>
+
+            <div class="contact-actions">
+              <!-- Replace the placeholder email with your actual email -->
+              <a class="btn btn-primary" href="mailto:YOUR_EMAIL@example.com">
+                Email Me
+              </a>
+
+              <!-- Replace with your actual GitHub -->
+              <a class="btn btn-secondary"
+                 href="https://github.com/YOUR_USERNAME"
+                 target="_blank"
+                 rel="noreferrer">
+                GitHub
+              </a>
+
+              <!-- Replace with your actual LinkedIn -->
+              <a class="btn btn-secondary"
+                 href="https://www.linkedin.com/in/YOUR_USERNAME"
+                 target="_blank"
+                 rel="noreferrer">
+                LinkedIn
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © <span id="year"></span> Lavanya Pandit — Designed and developed with a focus on software, AI, and meaningful products.
+    </div>
+  </footer>
+
+  <button id="top-btn" type="button" aria-label="Back to top">↑</button>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

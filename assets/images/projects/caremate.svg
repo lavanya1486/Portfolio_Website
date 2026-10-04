@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 620">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#6f55ff"/><stop offset=".55" stop-color="#2ae2d2"/><stop offset="1" stop-color="#0b1120"/></linearGradient><filter id="b"><feGaussianBlur stdDeviation="35"/></filter></defs>
+<rect width="1200" height="620" rx="36" fill="#080d1b"/><circle cx="940" cy="130" r="220" fill="#7c5cff" opacity=".25" filter="url(#b)"/><circle cx="260" cy="510" r="190" fill="#2ae2d2" opacity=".15" filter="url(#b)"/>
+<rect x="110" y="75" width="980" height="470" rx="28" fill="#11192a" stroke="#ffffff" stroke-opacity=".14"/>
+<rect x="155" y="125" width="560" height="360" rx="22" fill="#0b1221" stroke="#2ae2d2" stroke-opacity=".25"/><rect x="750" y="125" width="290" height="360" rx="22" fill="url(#g)" opacity=".85"/>
+<circle cx="435" cy="250" r="66" fill="#2ae2d2" opacity=".18"/><path d="M405 250h60M435 220v60" stroke="#68f0c9" stroke-width="12" stroke-linecap="round"/>
+<text x="190" y="175" fill="#68f0c9" font-family="Arial" font-size="22" font-weight="700" letter-spacing="4">CARE MATE</text><text x="190" y="385" fill="#edf5ff" font-family="Arial" font-size="40" font-weight="700">Smart elderly care</text><text x="190" y="430" fill="#9eb2c8" font-family="Arial" font-size="22">Medicine • Appointments • AI Support</text>
+<text x="795" y="205" fill="#fff" font-family="Arial" font-size="24" font-weight="700">Care Dashboard</text><rect x="795" y="240" width="200" height="54" rx="15" fill="#fff" opacity=".12"/><rect x="795" y="315" width="200" height="54" rx="15" fill="#fff" opacity=".12"/><rect x="795" y="390" width="145" height="54" rx="15" fill="#fff" opacity=".12"/>
+</svg>
