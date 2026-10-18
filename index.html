@@ -1,489 +1,2255 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="theme-color" content="#070b17">
-  <meta name="description" content="Lavanya Pandit — B.Tech Computer Science student at VIT Bhopal focused on software engineering, backend development, AI, and impactful applications.">
-  <title>Lavanya Pandit | Software Engineering • AI • Backend</title>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="web_standard" name="shell-type"/>
+  <title>Lavanya Pandit — Creative Developer Scrapbook</title>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#1e372b",
+            "primary-container": "#344e41",
+            "on-primary": "#ffffff",
+            "on-primary-container": "#c4decb",
+            "primary-fixed": "#ccead8",
+            "primary-fixed-dim": "#b0cdbc",
+            "secondary": "#566342",
+            "secondary-container": "#d7e5bb",
+            "on-secondary-container": "#2f3820",
+            "secondary-fixed": "#dae8be",
+            "tertiary": "#665f2c",
+            "tertiary-container": "#b5ad71",
+            "tertiary-fixed": "#eee4a3",
+            "on-tertiary-fixed": "#201c00",
+            "surface": "#f7faf4",
+            "surface-dim": "#eaece5",
+            "surface-bright": "#f7faf4",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-low": "#f2f5ee",
+            "surface-container": "#ecefe8",
+            "surface-container-high": "#e6e9e3",
+            "surface-container-highest": "#e0e3dd",
+            "on-surface": "#191d19",
+            "on-surface-variant": "#424844",
+            "outline": "#727974",
+            "outline-variant": "#c2c8c2",
+            "error": "#ba1a1a",
+            "error-container": "#ffdad6"
+          },
+          fontFamily: {
+            sans: ['Manrope', 'system-ui', 'sans-serif'],
+            serif: ['Newsreader', 'Georgia', 'serif'],
+            mono: ['"Fira Code"', 'Consolas', 'monospace'],
+            annotation: ['Newsreader', 'Georgia', 'serif']
+          },
+          boxShadow: {
+            'scrapbook-sm': '0 2px 8px rgba(30, 55, 43, 0.06), 0 1px 3px rgba(30, 55, 43, 0.04)',
+            'scrapbook': '0 10px 30px -5px rgba(30, 55, 43, 0.08), 0 4px 12px rgba(30, 55, 43, 0.04)',
+            'scrapbook-lg': '0 20px 40px -10px rgba(30, 55, 43, 0.12), 0 8px 20px -5px rgba(30, 55, 43, 0.06)',
+            'paper-curl': '0 15px 10px -10px rgba(0, 0, 0, 0.15)',
+            'tape': '0 1px 3px rgba(0,0,0,0.12)'
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    /* Custom Paper & Scrapbook Aesthetics */
+    :root {
+      --bg-color: #f7faf4;
+      --card-bg: #ffffff;
+      --primary-sage: #1e372b;
+      --secondary-moss: #566342;
+      --tape-butter: rgba(238, 228, 163, 0.85);
+      --tape-sage: rgba(215, 229, 187, 0.85);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: #191d19;
+      overflow-x: hidden;
+      font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    /* Subtle Paper Grain Overlay */
+    .paper-texture {
+      background-image: 
+        radial-gradient(#4a5b4c 0.75px, transparent 0.75px),
+        radial-gradient(#344e41 0.5px, transparent 0.5px);
+      background-size: 24px 24px, 48px 48px;
+      background-position: 0 0, 12px 12px;
+      opacity: 0.15;
+    }
+
+    /* Authentic Washi Tape with Jagged Edges */
+    .washi-tape {
+      background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 100%), var(--tape-butter);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.12);
+      clip-path: polygon(
+        0% 8%, 2% 0%, 98% 0%, 100% 12%, 99% 88%, 97% 100%, 3% 97%, 0% 92%
+      );
+      backdrop-filter: blur(2px);
+      position: absolute;
+      z-index: 30;
+      pointer-events: none;
+      transition: transform 0.2s ease;
+    }
+
+    .washi-tape-sage {
+      background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 100%), var(--tape-sage);
+      clip-path: polygon(
+        1% 0%, 99% 4%, 98% 96%, 100% 100%, 2% 98%, 0% 12%
+      );
+    }
+
+    .washi-tape-terracotta {
+      background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 100%), rgba(238, 196, 175, 0.85);
+    }
+
+    /* Hand-drawn Underline Animation */
+    .sketch-underline {
+      position: relative;
+      display: inline-block;
+    }
+    .sketch-underline svg {
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 100%;
+      height: 12px;
+      pointer-events: none;
+    }
+    .sketch-underline path {
+      stroke-dasharray: 200;
+      stroke-dashoffset: 200;
+      animation: drawUnderline 1.4s cubic-bezier(0.65, 0, 0.35, 1) forwards 0.3s;
+    }
+    @keyframes drawUnderline {
+      to { stroke-dashoffset: 0; }
+    }
+
+    /* Smooth Scrollspy Active State */
+    .nav-pill.active {
+      background-color: #344e41;
+      color: #ccead8;
+      box-shadow: 0 2px 6px rgba(30, 55, 43, 0.2);
+    }
+
+    /* Tactile Paper Lift on Hover */
+    .tactile-card {
+      transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.28s ease;
+    }
+    .tactile-card:hover {
+      transform: translateY(-4px) rotate(0.4deg);
+      box-shadow: 0 16px 36px -8px rgba(30, 55, 43, 0.12), 0 4px 12px rgba(30, 55, 43, 0.05);
+    }
+
+    /* Polaroid 3D Tilt */
+    .polaroid-card {
+      perspective: 800px;
+      transform-style: preserve-3d;
+      transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+    .polaroid-card:hover {
+      transform: translateY(-6px) scale(1.02) rotate(-1deg);
+    }
+
+    /* Ink Stamp Animation */
+    @keyframes stampDrop {
+      0% {
+        opacity: 0;
+        transform: scale(2.2) rotate(var(--stamp-rot, -8deg));
+      }
+      70% {
+        opacity: 0.95;
+        transform: scale(0.92) rotate(var(--stamp-rot, -8deg));
+      }
+      100% {
+        opacity: 0.85;
+        transform: scale(1) rotate(var(--stamp-rot, -8deg));
+      }
+    }
+    .placed-stamp {
+      position: absolute;
+      animation: stampDrop 0.28s cubic-bezier(0.2, 0.8, 0.4, 1) forwards;
+      pointer-events: none;
+      z-index: 45;
+      user-select: none;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #ecefe8;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #b0cdbc;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #566342;
+    }
+
+    /* Code Block Styling */
+    pre, code {
+      font-family: 'Fira Code', monospace;
+    }
+
+    /* Reading Progress Ribbon */
+    #progress-ribbon {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #566342, #344e41, #1e372b);
+      z-index: 100;
+      width: 0%;
+      transition: width 0.1s ease-out;
+    }
+  </style>
 </head>
 
-<body>
-  <div id="progress"></div>
-  <div id="glow"></div>
-  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+<body class="bg-surface text-on-surface antialiased selection:bg-secondary-container selection:text-on-secondary-container relative">
 
-  <nav class="nav">
-    <div class="container nav-inner">
-      <a href="#top" class="brand" aria-label="Lavanya Pandit Home">
-        <span class="brand-mark">L</span>
-        <span>Lavanya Pandit</span>
+  <!-- Reading Progress Top Ribbon -->
+  <div id="progress-ribbon"></div>
+
+  <!-- Ambient Paper Fiber Texture -->
+  <div class="fixed inset-0 pointer-events-none paper-texture z-0"></div>
+
+  <!-- Clickable Interactive Scrapbook Stamp Layer -->
+  <div id="stamp-container" class="fixed inset-0 pointer-events-none z-40 overflow-hidden"></div>
+
+  <!-- ========================================== -->
+  <!-- HEADER / NAVIGATION                        -->
+  <!-- ========================================== -->
+  <header class="fixed top-0 left-0 right-0 w-full z-50 bg-surface-container-lowest/92 backdrop-blur-md border-b border-outline-variant/30 shadow-[0_1px_12px_rgba(30,55,43,0.04)] transition-all duration-300">
+    <div class="h-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+      
+      <!-- Brand & Monogram -->
+      <a href="#hero" class="flex items-center gap-3 group text-decoration-none">
+        <div class="w-10 h-10 rounded-xl bg-primary-container text-on-primary-container flex items-center justify-center font-serif text-xl font-bold shadow-sm group-hover:scale-105 group-hover:bg-primary transition-all duration-300">
+          <span>LP</span>
+        </div>
+        <div class="flex flex-col">
+          <div class="flex items-center gap-1.5">
+            <span class="font-serif text-xl font-semibold text-primary tracking-tight group-hover:text-secondary transition-colors">Lavanya Pandit</span>
+          </div>
+        </div>
       </a>
 
-      <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#experience">Experience</a>
-        <a href="#contact">Contact</a>
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden lg:flex items-center gap-1 p-1 rounded-xl bg-surface-container-low border border-outline-variant/20 shadow-inner">
+        <a href="#hero" class="nav-pill px-3 py-1.5 rounded-lg text-xs font-semibold tracking-wider uppercase transition-all duration-200 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high active">Home</a>
+        <a href="#about" class="nav-pill px-3 py-1.5 rounded-lg text-xs font-semibold tracking-wider uppercase transition-all duration-200 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high">About</a>
+        <a href="#projects" class="nav-pill px-3 py-1.5 rounded-lg text-xs font-semibold tracking-wider uppercase transition-all duration-200 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high">Projects</a>
+        <a href="#skills" class="nav-pill px-3 py-1.5 rounded-lg text-xs font-semibold tracking-wider uppercase transition-all duration-200 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high">Skills</a>
+        <a href="#beyond-code" class="nav-pill px-3 py-1.5 rounded-lg text-xs font-semibold tracking-wider uppercase transition-all duration-200 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high">Beyond Code</a>
+        <a href="#contact" class="nav-pill px-3 py-1.5 rounded-lg text-xs font-semibold tracking-wider uppercase transition-all duration-200 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high">Contact</a>
+      </nav>
+
+      <!-- Action Cluster: Stamp Tool, Sound, Availability -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        
+        <!-- Tactile Sound Toggle -->
+        <button id="soundToggleBtn" onclick="toggleAudio()" title="Toggle tactile sound effects" class="w-9 h-9 rounded-full bg-surface-container-low hover:bg-surface-container-high text-secondary flex items-center justify-center transition-all duration-200 border border-outline-variant/30">
+          <span class="material-symbols-outlined text-[18px]" id="soundIcon">volume_off</span>
+        </button>
+
+        <!-- Availability Badge -->
+        <div class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 bg-tertiary-fixed text-on-tertiary-fixed rounded-full shadow-xs border border-tertiary-container/30">
+          <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+          <span class="text-[11px] font-bold uppercase tracking-wider">Open to SDE Roles</span>
+        </div>
+
+        <!-- Quick Contact Button -->
+        <a href="#contact" class="hidden md:inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-primary text-on-primary rounded-lg text-xs font-bold uppercase tracking-wider hover:bg-primary-container transition-all shadow-xs active:translate-y-0.5">
+          <span>Say Hello</span>
+          <span class="material-symbols-outlined text-[15px]">send</span>
+        </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobileMenuBtn" onclick="toggleMobileMenu()" class="lg:hidden w-10 h-10 rounded-xl bg-surface-container-low hover:bg-surface-container-high text-primary flex items-center justify-center transition-colors">
+          <span class="material-symbols-outlined text-[22px]" id="mobileMenuIcon">menu</span>
+        </button>
       </div>
 
-      <a href="#contact" class="nav-cta">Let's Talk</a>
     </div>
-  </nav>
 
-<!-- Replace your whole <header class="hero" id="top"> ... </header> block with this -->
-<header class="hero" id="top">
-  <div class="container hero-grid">
-    <div class="hero-copy">
-      <h1>
-        <span class="greet">Hi, I'm</span>
-        <span class="highlight name">Lavanya<br>Pandit</span>
-      </h1>
+    <!-- Mobile Drawer Menu -->
+    <div id="mobileMenu" class="hidden lg:hidden border-t border-outline-variant/30 bg-surface-container-lowest/98 px-6 py-4 shadow-xl">
+      <div class="flex flex-col space-y-2">
+        <a href="#hero" onclick="closeMobileMenu()" class="py-2 text-sm font-semibold text-primary hover:text-secondary uppercase tracking-wider">00. Home</a>
+        <a href="#about" onclick="closeMobileMenu()" class="py-2 text-sm font-semibold text-primary hover:text-secondary uppercase tracking-wider">01. About & Manifest</a>
+        <a href="#projects" onclick="closeMobileMenu()" class="py-2 text-sm font-semibold text-primary hover:text-secondary uppercase tracking-wider">02. Selected Projects</a>
+        <a href="#skills" onclick="closeMobileMenu()" class="py-2 text-sm font-semibold text-primary hover:text-secondary uppercase tracking-wider">03. Technical Toolkit</a>
+        <a href="#beyond-code" onclick="closeMobileMenu()" class="py-2 text-sm font-semibold text-primary hover:text-secondary uppercase tracking-wider">04. Beyond Code</a>
+        <a href="#contact" onclick="closeMobileMenu()" class="py-2 text-sm font-semibold text-primary hover:text-secondary uppercase tracking-wider">05. Inquiries & Notes</a>
+      </div>
+    </div>
+  </header>
 
-      <p class="roles">
-        Currently exploring <b id="role"></b><i></i>
+  <!-- ========================================== -->
+  <!-- MAIN CONTENT CONTAINER                     -->
+  <!-- ========================================== -->
+  <main class="w-full pt-24 min-h-screen relative z-10">
+
+    <!-- ========================================== -->
+    <!-- SECTION 1: HERO NOTEBOOK OPENING           -->
+    <!-- ========================================== -->
+    <section class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-20" id="hero">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+        
+        <!-- Left Column: Typography & Intent -->
+        <div class="lg:col-span-7 flex flex-col items-start space-y-5">
+          
+          <!-- Micro-Pills -->
+          <div class="flex flex-wrap items-center gap-2">
+            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container text-xs font-bold uppercase tracking-wider shadow-xs border border-secondary/20">
+              <span class="material-symbols-outlined text-[15px]">potted_plant</span>
+              <span>Independently Curious · Constantly Building</span>
+            </div>
+            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-tertiary-fixed text-on-tertiary-fixed text-xs font-bold uppercase tracking-wider shadow-xs border border-tertiary/20">
+              <span class="w-2 h-2 rounded-full bg-primary animate-ping"></span>
+              <span>B.Tech · CS Year 3</span>
+            </div>
+          </div>
+
+          <!-- Main Headline with Hand-Drawn Wavy Underline -->
+          <div class="space-y-2">
+            <h1 class="font-serif text-5xl sm:text-6xl lg:text-7xl text-primary font-normal tracking-tight leading-[1.08]">
+              Hi, I’m 
+              <span class="sketch-underline font-serif italic text-primary">
+                Lavanya
+                <svg viewBox="0 0 100 20" preserveAspectRatio="none">
+                  <path d="M2,14 Q30,4 55,14 T98,12" fill="none" stroke="#b5ad71" stroke-width="4.5" stroke-linecap="round"/>
+                </svg>
+              </span>.
+            </h1>
+            <p class="font-serif text-2xl sm:text-3xl text-secondary leading-snug">
+              I turn curious ideas into useful, well-crafted software.
+            </p>
+          </div>
+
+          <!-- Bio Body -->
+          <p class="text-base sm:text-lg text-on-surface-variant max-w-2xl leading-relaxed">
+            I’m a third-year B.Tech undergraduate exploring software development, robust Java backend architectures, Python automation, and computer vision interfaces. I enjoy building practical applications, dissecting complex systems, and learning through deliberate iterative creation.
+          </p>
+
+          <!-- CTA Buttons & Handwritten Note -->
+          <div class="pt-2 flex flex-wrap items-center gap-4 relative w-full">
+            <a href="#projects" class="inline-flex items-center gap-2 px-6 py-3 bg-primary text-on-primary hover:bg-primary-container transition-all duration-200 shadow-md hover:shadow-lg rounded-xl text-xs sm:text-sm font-bold uppercase tracking-wider group active:translate-y-0.5">
+              <span>Explore My Projects</span>
+              <span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+            </a>
+            
+            <a href="#contact" class="inline-flex items-center gap-2 px-6 py-3 bg-surface-container-lowest text-primary hover:bg-surface-container-low transition-all duration-200 border border-outline-variant/40 shadow-xs hover:shadow-md rounded-xl text-xs sm:text-sm font-bold uppercase tracking-wider active:translate-y-0.5">
+              <span class="material-symbols-outlined text-[18px]">outgoing_mail</span>
+              <span>Let's Connect</span>
+            </a>
+
+            <!-- Hand-drawn Annotation Anchor -->
+            <div class="hidden sm:flex items-center gap-2 absolute -bottom-10 right-2 lg:right-10 text-tertiary">
+              <svg class="w-5 h-5 stroke-current fill-none" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M19 14l-7 7m0 0l-7-7m7 7V3" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span class="font-serif italic text-sm text-tertiary">look what’s brewing below</span>
+            </div>
+          </div>
+
+          <!-- Quick Micro Metrics -->
+          <div class="pt-6 grid grid-cols-3 gap-3 w-full max-w-lg">
+            <div class="p-3 bg-surface-container-lowest rounded-xl border border-outline-variant/30 text-center shadow-xs">
+              <div class="text-2xl font-serif font-bold text-primary">3+</div>
+              <div class="text-[11px] font-bold text-secondary uppercase tracking-wider mt-0.5">Flagship Systems</div>
+            </div>
+            <div class="p-3 bg-surface-container-lowest rounded-xl border border-outline-variant/30 text-center shadow-xs">
+              <div class="text-2xl font-serif font-bold text-primary">15k+</div>
+              <div class="text-[11px] font-bold text-secondary uppercase tracking-wider mt-0.5">Lines Crafted</div>
+            </div>
+            <div class="p-3 bg-surface-container-lowest rounded-xl border border-outline-variant/30 text-center shadow-xs">
+              <div class="text-2xl font-serif font-bold text-primary">100%</div>
+              <div class="text-[11px] font-bold text-secondary uppercase tracking-wider mt-0.5">Curiosity-Led</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Column: Interactive 3D Desk Toy & Layered Scrapbook Assembly -->
+        <div class="lg:col-span-5 relative mt-8 lg:mt-0">
+          
+          <!-- Layered Background Paper (-3deg offset) -->
+          <div class="absolute -inset-3 bg-surface-container-lowest rounded-2xl shadow-md rotate-[-2.5deg] pointer-events-none p-5 opacity-90 border border-outline-variant/40">
+            <div class="w-full h-full flex flex-col justify-between opacity-35">
+              <div class="flex justify-between items-center text-xs font-mono">
+                <span>ARCHIVE // REF: 2026.LP</span>
+                <span>ENTRY #01</span>
+              </div>
+              <div class="font-serif italic text-sm text-primary leading-tight">
+                "Curiosity first · Code with intent · Refactor with care."
+              </div>
+            </div>
+          </div>
+
+          <!-- Washi Tape Strips -->
+          <div class="washi-tape top-[-14px] left-6 w-28 h-7 -rotate-6"></div>
+          <div class="washi-tape washi-tape-sage bottom-[-14px] right-8 w-32 h-7 rotate-3"></div>
+
+          <!-- Main Desk Card -->
+          <div class="relative z-20 bg-surface-container-lowest rounded-2xl p-5 shadow-scrapbook border border-outline-variant/40">
+            
+            <!-- Card Header -->
+            <div class="flex items-center justify-between pb-3 border-b border-outline-variant/20 mb-3">
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-primary/80"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-secondary/60"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-tertiary/50"></span>
+                <span class="text-xs font-bold text-on-surface-variant uppercase tracking-wider ml-1">Interactive Desk Toy</span>
+              </div>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-surface-container text-secondary font-semibold">Three.js WebGL</span>
+            </div>
+
+            <!-- 3D Interactive Canvas Container -->
+            <div class="w-full h-[340px] rounded-xl bg-gradient-to-b from-surface-container-low to-surface-container overflow-hidden relative cursor-grab active:cursor-grabbing select-none" id="canvas-wrapper">
+              
+              <div id="threejs-hero-container" class="w-full h-full"></div>
+
+              <!-- Interactive Floating Help Hint -->
+              <div class="absolute bottom-3 left-3 bg-surface-container-lowest/90 backdrop-blur-sm px-3 py-1.5 rounded-lg border border-outline-variant/30 text-[11px] font-semibold text-secondary flex items-center gap-2 shadow-xs pointer-events-none">
+                <span class="material-symbols-outlined text-[15px] animate-bounce">pan_tool_alt</span>
+                <span>Drag to orbit · Click to pulse</span>
+              </div>
+
+              <!-- Reset Camera Button -->
+              <button onclick="resetHeroCamera()" title="Reset view" class="absolute top-3 right-3 w-8 h-8 rounded-lg bg-surface-container-lowest/80 hover:bg-surface-container-lowest backdrop-blur-sm text-secondary hover:text-primary flex items-center justify-center transition-all border border-outline-variant/30 shadow-xs">
+                <span class="material-symbols-outlined text-[16px]">restart_alt</span>
+              </button>
+            </div>
+
+            <!-- Pinned Micro Note Accent -->
+            <div class="mt-4 p-3 bg-tertiary-fixed/40 rounded-xl border border-tertiary/20 flex items-start gap-2.5">
+              <span class="material-symbols-outlined text-tertiary text-[18px] mt-0.5">push_pin</span>
+              <div class="flex-1">
+                <p class="font-serif italic text-sm text-on-surface">
+                  “Ideas → Experiments → Things that actually work.”
+                </p>
+                <div class="flex items-center gap-2 mt-1">
+                  <span class="text-[11px] font-bold text-secondary uppercase tracking-wider">Current Focus:</span>
+                  <span class="text-[11px] font-semibold text-on-surface-variant">Distributed Systems & Real-time Vision</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SECTION 2: ABOUT NOTEBOOK                   -->
+    <!-- ========================================== -->
+    <section class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20" id="about">
+      
+      <!-- Section Header Tag -->
+      <div class="flex items-center gap-3 mb-2">
+        <span class="text-xs font-bold tracking-widest uppercase text-secondary">Chapter 01 // Manifest</span>
+        <div class="h-0.5 w-16 bg-secondary-container"></div>
+      </div>
+      
+      <h2 class="font-serif text-4xl sm:text-5xl text-primary font-normal tracking-tight">
+        A little about me.
+      </h2>
+      <p class="font-serif italic text-xl text-on-surface-variant mb-12">
+        Part problem-solver. Part experimenter. Always learning.
       </p>
 
-      <p class="hero-sub">
-        Welcome to my little corner of the digital world. I’m Lavanya, a Computer Science student at VIT Bhopal who loves turning ideas into experiences that are not only functional, but meaningful and beautiful.
+      <!-- Two-Column Editorial Spread -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        
+        <!-- Personal Statement Sheet -->
+        <div class="lg:col-span-7 bg-surface-container-lowest p-6 sm:p-10 rounded-2xl shadow-scrapbook border border-outline-variant/30 relative flex flex-col justify-between tactile-card">
+          <!-- Washi Tape Accent -->
+          <div class="washi-tape top-[-12px] left-12 w-32 h-6 -rotate-2"></div>
+          
+          <div class="space-y-5">
+            <div class="flex items-center justify-between pb-3 border-b border-outline-variant/20 text-xs font-mono text-outline">
+              <span class="uppercase tracking-wider">L. Pandit · Student of Engineering</span>
+              <span>Entry #042</span>
+            </div>
+            
+            <p class="text-lg text-on-surface leading-relaxed">
+              I’m a third-year B.Tech undergraduate driven by building software that solves concrete, day-to-day problems. From architecting Java-based server backends with resilient API patterns to engineering Python-powered computer vision tools, I enjoy investigating how lines of code translate into intuitive physical or digital utilities.
+            </p>
+            
+            <p class="text-base text-on-surface-variant leading-relaxed">
+              I learn through deliberate building: sketching out data schemas on physical paper, writing tests, debugging race conditions, and refining usability. For me, good engineering isn't just about making things compile—it's about making them clear, maintainable, and dependable for real people.
+            </p>
+          </div>
 
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="#projects">View Projects</a>
-        <a class="btn btn-secondary" href="assets/resume/Lavanya_Pandit_Resume.pdf" target="_blank" rel="noreferrer">View Resume</a>
-      </div>
-
-      <div class="hero-social">
-        <a href="https://github.com/lavanya1486" target="_blank" rel="noreferrer">GitHub</a>
-        <a href="https://www.linkedin.com/in/YOUR_USERNAME" target="_blank" rel="noreferrer">LinkedIn</a>
-        <a href="mailto:YOUR_EMAIL@example.com">Email</a>
-      </div>
-    </div>
-
-    <div class="visual-wrap hero-profile-wrap">
-      <div class="hero-profile" aria-label="Portrait of Lavanya Pandit">
-        <div class="profile-aura"></div>
-        <div class="profile-orbit orbit-one"></div>
-        <div class="profile-orbit orbit-two"></div>
-
-        <div class="profile-frame">
-          <img src="assets/images/lavanya-pfp.png" alt="Lavanya Pandit" class="hero-profile-image">
-        </div>
-
-        <div class="profile-chip chip-top">
-          <span class="chip-dot"></span> Software + AI
-        </div>
-
-        <div class="profile-card">
-          <span class="mini-tag">Now building</span>
-          <strong>CareMate</strong>
-          <small>Java · Spring Boot · PostgreSQL</small>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <a class="scroll-cue" href="#about" aria-label="Scroll to About section"><span></span></a>
-</header>
-
-  <div class="marquee" aria-hidden="true">
-    <div class="track" id="track"></div>
-  </div>
-
-  <main>
-    <section class="section" id="about">
-      <div class="container about-grid">
-        <div class="about-visual-panel">
-          <div class="scene about-scene" aria-label="3D portfolio highlights">
-            <div class="ring"></div>
-            <div class="orb one"></div>
-            <div class="orb two"></div>
-
-            <div class="floating-card card-a">
-              <span class="mini-tag">Building</span>
-              <h3>CareMate</h3>
-              <p>
-                An elderly-care application with medicine scheduling,
-                appointments, notifications, and AI-assisted support.
-              </p>
-              <div class="stack">
-                <span>Java</span>
-                <span>Spring Boot</span>
-                <span>PostgreSQL</span>
+          <!-- Marginalia Footnote -->
+          <div class="mt-8 pt-4 bg-surface-container-low p-4 rounded-xl border border-outline-variant/20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+            <div class="flex items-center gap-3">
+              <span class="material-symbols-outlined text-secondary text-[24px]">auto_stories</span>
+              <div>
+                <div class="text-[11px] font-bold text-secondary uppercase">Guiding Principle</div>
+                <div class="font-serif italic text-sm text-primary">Curiosity first · Code with intent · Refactor with care.</div>
               </div>
             </div>
-
-            <div class="floating-card card-b">
-              <span class="mini-tag">Focus</span>
-              <h3>Software + AI</h3>
-              <p>
-                Strengthening backend engineering, DSA, AI integration,
-                and real-world application development.
-              </p>
-              <div class="stack">
-                <span>Python</span>
-                <span>Java</span>
-                <span>AI</span>
-              </div>
-            </div>
+            <span class="text-xs font-bold px-2.5 py-1 bg-secondary-fixed text-on-secondary-container rounded-lg border border-secondary/20">B.Tech Y3</span>
           </div>
         </div>
 
-        <div class="about-copy">
-          <span class="eyebrow">About Me</span>
-
-          <h2>Learning by building, solving, and shipping.</h2>
-
-          <p>
-            I'm a third-year B.Tech Computer Science student at VIT Bhopal
-            with a strong interest in software engineering, backend development,
-            artificial intelligence, and practical problem solving.
-          </p>
-
-          <p>
-            I enjoy taking an idea from concept to implementation while
-            continuously improving my understanding of data structures,
-            algorithms, databases, computer networks, object-oriented programming,
-            and modern application development.
-          </p>
-
-          <p>
-            My current focus is building projects that combine strong engineering
-            fundamentals with useful real-world experiences.
-          </p>
-
-          <div class="facts">
-            <div class="fact">
-              <strong>CGPA</strong>
-              <span>8.76/10</span>
+        <!-- 3 Editorial Index Cards Column -->
+        <div class="lg:col-span-5 flex flex-col justify-between gap-4">
+          
+          <!-- Card 01: BUILD -->
+          <div class="p-5 bg-surface-container-lowest rounded-2xl shadow-scrapbook-sm border border-outline-variant/30 hover:border-primary/40 transition-all tactile-card group relative">
+            <div class="washi-tape washi-tape-sage top-[-8px] left-6 w-16 h-4 pointer-events-none"></div>
+            <div class="flex items-start justify-between">
+              <span class="font-serif text-3xl text-secondary/30 group-hover:text-secondary/60 transition-colors">01</span>
+              <span class="text-[11px] font-bold px-2.5 py-0.5 rounded-lg bg-primary-container text-on-primary">BUILD</span>
             </div>
-            <div class="fact">
-              <strong>17+</strong>
-              <span>Certificates and Projects</span>
-            </div>
-            <div class="fact">
-              <strong>DSA</strong>
-              <span>Core problem-solving focus</span>
+            <h3 class="font-serif text-xl text-primary font-semibold mt-1">Turn ideas into practical applications</h3>
+            <p class="text-xs text-on-surface-variant mt-1.5 leading-relaxed">
+              Focusing on scalable backend systems, normalized schemas, and RESTful APIs built with Java &amp; Spring Boot.
+            </p>
+            <div class="mt-3 font-mono text-[11px] bg-surface-container-low px-3 py-1.5 rounded-lg text-primary border border-outline-variant/20 flex items-center justify-between">
+              <span>@RestController @RequestMapping</span>
+              <span class="text-[10px] text-secondary font-bold">API</span>
             </div>
           </div>
+
+          <!-- Card 02: EXPLORE -->
+          <div class="p-5 bg-surface-container-lowest rounded-2xl shadow-scrapbook-sm border border-outline-variant/30 hover:border-tertiary/40 transition-all tactile-card group relative">
+            <div class="washi-tape top-[-8px] left-6 w-16 h-4 pointer-events-none"></div>
+            <div class="flex items-start justify-between">
+              <span class="font-serif text-3xl text-tertiary/30 group-hover:text-tertiary/60 transition-colors">02</span>
+              <span class="text-[11px] font-bold px-2.5 py-0.5 rounded-lg bg-tertiary text-on-tertiary">EXPLORE</span>
+            </div>
+            <h3 class="font-serif text-xl text-primary font-semibold mt-1">Experiment with intelligent interfaces</h3>
+            <p class="text-xs text-on-surface-variant mt-1.5 leading-relaxed">
+              Applying computer vision and NLP to eliminate mundane friction—touchless laptop control and resume synthesis.
+            </p>
+            <div class="mt-3 font-mono text-[11px] bg-surface-container-low px-3 py-1.5 rounded-lg text-secondary border border-outline-variant/20 flex items-center justify-between">
+              <span>landmarks[8].y - landmarks[4].y</span>
+              <span class="text-[10px] text-tertiary font-bold">CV</span>
+            </div>
+          </div>
+
+          <!-- Card 03: IMPROVE -->
+          <div class="p-5 bg-surface-container-lowest rounded-2xl shadow-scrapbook-sm border border-outline-variant/30 hover:border-secondary/40 transition-all tactile-card group relative">
+            <div class="washi-tape washi-tape-sage top-[-8px] left-6 w-16 h-4 pointer-events-none"></div>
+            <div class="flex items-start justify-between">
+              <span class="font-serif text-3xl text-outline/30 group-hover:text-outline transition-colors">03</span>
+              <span class="text-[11px] font-bold px-2.5 py-0.5 rounded-lg bg-secondary text-on-secondary">IMPROVE</span>
+            </div>
+            <h3 class="font-serif text-xl text-primary font-semibold mt-1">Iterate relentlessly on feedback</h3>
+            <p class="text-xs text-on-surface-variant mt-1.5 leading-relaxed">
+              Analyzing edge cases, jitter in gesture detection, and query latencies to make software resilient under load.
+            </p>
+            <div class="mt-3 font-mono text-[11px] bg-surface-container-low px-3 py-1.5 rounded-lg text-on-surface-variant border border-outline-variant/20 flex items-center justify-between">
+              <span>EMA_smoothing(&alpha;=0.25) &rarr; Zero Jitter</span>
+              <span class="text-[10px] text-primary font-bold">OPTIMIZE</span>
+            </div>
+          </div>
+
         </div>
+
       </div>
+
     </section>
 
-    <section class="section" id="skills">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">Skills</span>
-          <h2>Technologies and foundations I'm building with.</h2>
-          <p>
-            A growing technical toolkit covering programming, backend systems,
-            databases, Android development, AI, and core computer science.
+    <!-- ========================================== -->
+    <!-- SECTION 3: SELECTED PROJECTS GALLERY        -->
+    <!-- ========================================== -->
+    <section class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20" id="projects">
+      
+      <!-- Section Header Tag -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+        <div>
+          <div class="flex items-center gap-3 mb-2">
+            <span class="text-xs font-bold tracking-widest uppercase text-secondary">Chapter 02 // Curated Folio</span>
+            <div class="h-0.5 w-16 bg-secondary-container"></div>
+          </div>
+          <h2 class="font-serif text-4xl sm:text-5xl text-primary font-normal tracking-tight">
+            Things I’ve been building.
+          </h2>
+          <p class="font-serif italic text-xl text-on-surface-variant">
+            Small ideas, serious experiments, and software that solves real problems.
           </p>
         </div>
 
-        <div class="skills-grid">
-          <article class="skill-card">
-            <div class="skill-icon">☕</div>
-            <h3>Programming</h3>
-            <ul>
-              <li>Java</li>
-              <li>Python</li>
-              <li>DSA</li>
-              <li>OOP</li>
-              <li>Problem Solving</li>
-            </ul>
-          </article>
-
-          <article class="skill-card">
-            <div class="skill-icon">⚙️</div>
-            <h3>Backend & Database</h3>
-            <ul>
-              <li>Spring Boot</li>
-              <li>REST APIs</li>
-              <li>PostgreSQL</li>
-              <li>SQL</li>
-              <li>Maven</li>
-            </ul>
-          </article>
-
-          <article class="skill-card">
-            <div class="skill-icon">🤖</div>
-            <h3>AI / Development</h3>
-            <ul>
-              <li>AI Integration</li>
-              <li>Python</li>
-              <li>Android</li>
-              <li>Machine Learning</li>
-              <li>Automation</li>
-            </ul>
-          </article>
-
-          <article class="skill-card">
-            <div class="skill-icon">🛠️</div>
-            <h3>Tools & CS</h3>
-            <ul>
-              <li>Git</li>
-              <li>GitHub</li>
-              <li>Postman</li>
-              <li>Computer Networks</li>
-              <li>DBMS</li>
-            </ul>
-          </article>
+        <div class="inline-flex items-center gap-2 px-4 py-2 bg-surface-container-lowest rounded-full border border-outline-variant/30 shadow-xs text-on-surface-variant text-xs font-bold uppercase tracking-wider">
+          <span class="w-2.5 h-2.5 rounded-full bg-secondary animate-pulse"></span>
+          <span>3 Live Interactive Sandboxes</span>
         </div>
       </div>
-    </section>
 
-    <section class="section" id="projects">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">Projects</span>
-          <h2>Projects built around real problems.</h2>
-          <p>
-            Selected work focused on practical applications, backend engineering,
-            user experience, and meaningful technology.
-          </p>
-        </div>
+      <!-- Projects Stack -->
+      <div class="space-y-16">
 
-        <div class="projects-grid">
-          <article class="project-card featured-project">
-            <div class="project-visual project-image-wrap">
-              <img class="project-image" src="assets/images/projects/caremate.svg" alt="CareMate project interface preview">
+        <!-- ========================================================= -->
+        <!-- PROJECT 01: JOB APPLICATION TRACKER WITH ANALYTICS        -->
+        <!-- ========================================================= -->
+        <article class="bg-surface-container-lowest rounded-3xl p-6 sm:p-10 shadow-scrapbook border border-outline-variant/30 relative tactile-card group" id="project-card-1">
+          <!-- Masking Tape Badge -->
+          <div class="washi-tape top-[-14px] left-10 w-44 h-7 -rotate-1 flex items-center justify-center text-xs font-mono font-bold text-on-tertiary-fixed uppercase tracking-wider">
+            EXP.01 // FULL-STACK
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 pt-2">
+            
+            <!-- Narrative Details -->
+            <div class="lg:col-span-5 flex flex-col justify-between space-y-5">
+              <div>
+                <div class="flex items-center gap-2 text-secondary text-xs font-bold uppercase tracking-wider mb-2">
+                  <span>Enterprise Architecture</span>
+                  <span>•</span>
+                  <span>Relational Schema</span>
+                </div>
+                <h3 class="font-serif text-3xl sm:text-4xl text-primary font-medium leading-tight">
+                  Job Application Tracker with Analytics
+                </h3>
+                <p class="text-sm sm:text-base text-on-surface-variant mt-3 leading-relaxed">
+                  A robust full-stack solution engineered to replace chaotic spreadsheets. Provides multi-stage pipeline management, interview calendar coordination, deadline telemetry, and aggregate metrics on response velocities and conversion rates.
+                </p>
+              </div>
+
+              <!-- Tech Badges -->
+              <div class="flex flex-wrap gap-1.5">
+                <span class="px-2.5 py-1 rounded-lg bg-surface-container-low text-primary text-xs font-semibold border border-outline-variant/20">Java 17</span>
+                <span class="px-2.5 py-1 rounded-lg bg-surface-container-low text-primary text-xs font-semibold border border-outline-variant/20">Spring Boot</span>
+                <span class="px-2.5 py-1 rounded-lg bg-surface-container-low text-primary text-xs font-semibold border border-outline-variant/20">PostgreSQL</span>
+                <span class="px-2.5 py-1 rounded-lg bg-surface-container-low text-primary text-xs font-semibold border border-outline-variant/20">React</span>
+                <span class="px-2.5 py-1 rounded-lg bg-surface-container-low text-primary text-xs font-semibold border border-outline-variant/20">JWT Security</span>
+              </div>
+
+              <!-- Dev Notes Card -->
+              <div class="p-3.5 bg-tertiary-fixed/30 rounded-xl border border-tertiary/20 relative shadow-xs">
+                <div class="text-[11px] font-bold text-tertiary uppercase tracking-wider">Dev Notes • Architectural Intent</div>
+                <p class="font-serif italic text-sm text-on-surface mt-1">
+                  “Designed with strict 3NF constraints, eliminating ghosting ambiguity and indexing candidate response cycles.”
+                </p>
+              </div>
+
+              <!-- Action Buttons -->
+              <div class="flex flex-wrap items-center gap-3 pt-2">
+                <button onclick="openModal('jobTrackerModal')" class="px-5 py-2.5 bg-primary text-on-primary rounded-xl text-xs font-bold uppercase tracking-wider hover:bg-primary-container transition-all shadow-xs flex items-center gap-2 active:translate-y-0.5">
+                  <span>View Case Study</span>
+                  <span class="material-symbols-outlined text-[16px]">menu_book</span>
+                </button>
+                <a href="https://github.com/lavanyapandit" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 bg-surface-container-low text-primary rounded-xl text-xs font-bold uppercase tracking-wider hover:bg-surface-container-high transition-all border border-outline-variant/30 flex items-center gap-2">
+                  <span class="material-symbols-outlined text-[16px]">code</span>
+                  <span>GitHub Repository</span>
+                </a>
+              </div>
             </div>
 
-            <div class="project-meta">
-              <span class="pill">Featured • AI + Android</span>
-              <span>2026</span>
+            <!-- Interactive Kanban Sandbox Simulator -->
+            <div class="lg:col-span-7 bg-surface-container-low rounded-2xl p-5 border border-outline-variant/30 shadow-inner flex flex-col justify-between space-y-4">
+              
+              <!-- Control Header -->
+              <div class="flex flex-wrap items-center justify-between gap-2 pb-2 bg-surface-container-lowest p-2.5 px-3.5 rounded-xl border border-outline-variant/20">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-3 h-3 rounded-full bg-error"></span>
+                  <span class="w-3 h-3 rounded-full bg-tertiary-container"></span>
+                  <span class="w-3 h-3 rounded-full bg-secondary"></span>
+                  <span class="font-mono text-xs text-on-surface-variant ml-2">app-pipeline.local:8080</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="text-[10px] font-mono px-2 py-0.5 bg-secondary-container text-on-secondary-container rounded font-bold uppercase">Click cards to advance</span>
+                </div>
+              </div>
+
+              <!-- Interactive Columns -->
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-3" id="kanban-board">
+                
+                <!-- Applied Column -->
+                <div class="bg-surface-container-lowest p-3 rounded-xl border border-outline-variant/20 shadow-xs flex flex-col justify-between min-h-[190px]">
+                  <div>
+                    <div class="flex items-center justify-between pb-2 border-b border-outline-variant/20 text-xs font-bold text-on-surface-variant">
+                      <span>APPLIED</span>
+                      <span id="count-applied" class="px-2 py-0.5 bg-surface-container-high rounded text-[10px]">2</span>
+                    </div>
+                    <div class="space-y-2 mt-2" id="col-applied">
+                      <div onclick="moveKanbanCard(this, 'applied')" class="p-2.5 bg-surface-container-low hover:bg-surface-container rounded-lg text-xs font-medium text-primary cursor-pointer border border-outline-variant/20 transition-all hover:scale-[1.02]">
+                        <div class="font-bold flex justify-between items-center">
+                          <span>Stripe</span>
+                          <span class="text-[10px] text-secondary font-semibold">Advance &rarr;</span>
+                        </div>
+                        <div class="text-[11px] text-on-surface-variant mt-0.5">Backend SDE</div>
+                        <div class="text-[10px] text-outline mt-1 font-mono">Submitted 3d ago</div>
+                      </div>
+                      <div onclick="moveKanbanCard(this, 'applied')" class="p-2.5 bg-surface-container-low hover:bg-surface-container rounded-lg text-xs font-medium text-primary cursor-pointer border border-outline-variant/20 transition-all hover:scale-[1.02]">
+                        <div class="font-bold flex justify-between items-center">
+                          <span>Atlassian</span>
+                          <span class="text-[10px] text-secondary font-semibold">Advance &rarr;</span>
+                        </div>
+                        <div class="text-[11px] text-on-surface-variant mt-0.5">SWE Intern</div>
+                        <div class="text-[10px] text-outline mt-1 font-mono">Submitted 5d ago</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="text-[10px] text-outline text-center pt-2 font-mono">// Click to shift stage</div>
+                </div>
+
+                <!-- Interviewing Column -->
+                <div class="bg-surface-container-lowest p-3 rounded-xl border border-outline-variant/20 shadow-xs flex flex-col justify-between min-h-[190px]">
+                  <div>
+                    <div class="flex items-center justify-between pb-2 border-b border-outline-variant/20 text-xs font-bold text-secondary">
+                      <span>INTERVIEWING</span>
+                      <span id="count-interviewing" class="px-2 py-0.5 bg-secondary-container text-on-secondary-container rounded text-[10px]">2</span>
+                    </div>
+                    <div class="space-y-2 mt-2" id="col-interviewing">
+                      <div onclick="moveKanbanCard(this, 'interviewing')" class="p-2.5 bg-secondary-fixed/40 hover:bg-secondary-fixed/60 rounded-lg text-xs font-medium text-primary cursor-pointer border border-secondary/30 transition-all hover:scale-[1.02]">
+                        <div class="font-bold flex justify-between items-center">
+                          <span>Razorpay</span>
+                          <span class="text-[10px] text-primary font-semibold">Advance &rarr;</span>
+                        </div>
+                        <div class="text-[11px] text-secondary font-bold mt-0.5">Tech Screen Today</div>
+                        <div class="text-[10px] text-outline mt-1 font-mono">Stage 2 of 3</div>
+                      </div>
+                      <div onclick="moveKanbanCard(this, 'interviewing')" class="p-2.5 bg-secondary-fixed/40 hover:bg-secondary-fixed/60 rounded-lg text-xs font-medium text-primary cursor-pointer border border-secondary/30 transition-all hover:scale-[1.02]">
+                        <div class="font-bold flex justify-between items-center">
+                          <span>Postman</span>
+                          <span class="text-[10px] text-primary font-semibold">Advance &rarr;</span>
+                        </div>
+                        <div class="text-[11px] text-on-surface-variant mt-0.5">Platform Dev</div>
+                        <div class="text-[10px] text-outline mt-1 font-mono">System Design Rd</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="text-[10px] text-outline text-center pt-2 font-mono">// Click to shift stage</div>
+                </div>
+
+                <!-- Offer Column -->
+                <div class="bg-surface-container-lowest p-3 rounded-xl border border-outline-variant/20 shadow-xs flex flex-col justify-between min-h-[190px]">
+                  <div>
+                    <div class="flex items-center justify-between pb-2 border-b border-outline-variant/20 text-xs font-bold text-tertiary">
+                      <span>OFFER</span>
+                      <span id="count-offer" class="px-2 py-0.5 bg-tertiary-fixed text-on-tertiary-fixed rounded text-[10px]">1</span>
+                    </div>
+                    <div class="space-y-2 mt-2" id="col-offer">
+                      <div onclick="moveKanbanCard(this, 'offer')" class="p-2.5 bg-tertiary-fixed/50 hover:bg-tertiary-fixed/70 rounded-lg text-xs font-semibold text-primary cursor-pointer border border-tertiary/40 transition-all hover:scale-[1.02]">
+                        <div class="font-bold flex justify-between items-center">
+                          <span>FinTech Labs</span>
+                          <span class="text-[10px] text-tertiary font-bold">Reset &orarr;</span>
+                        </div>
+                        <div class="text-[10px] text-tertiary font-bold mt-0.5">&check; Contract Verified</div>
+                        <div class="text-[10px] text-outline mt-1 font-mono">CTC Decided</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="text-[10px] text-outline text-center pt-2 font-mono">// Click to reset card</div>
+                </div>
+
+              </div>
+
+              <!-- Visual Metric Sparkline with Interactive Hover Tooltip -->
+              <div class="bg-surface-container-lowest p-4 rounded-xl border border-outline-variant/20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 relative">
+                <div>
+                  <div class="text-xs font-bold uppercase text-on-surface-variant">Response Velocity Metric</div>
+                  <div class="font-serif text-2xl font-bold text-primary flex items-baseline gap-2 mt-0.5">
+                    <span id="velocity-metric">71.4%</span>
+                    <span class="text-xs font-sans font-normal text-secondary">vs 28% cohort average</span>
+                  </div>
+                </div>
+
+                <!-- Interactive SVG Sparkline -->
+                <div class="relative group/chart">
+                  <svg class="w-48 h-12 text-primary stroke-current fill-none" viewBox="0 0 160 40">
+                    <path d="M0 34 L25 28 L50 22 L75 24 L100 10 L130 14 L160 4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" class="transition-all duration-300"></path>
+                    <circle cx="25" cy="28" r="3.5" class="fill-secondary cursor-pointer hover:r-5 transition-all" data-point="Week 1: 38% velocity"></circle>
+                    <circle cx="75" cy="24" r="3.5" class="fill-secondary cursor-pointer hover:r-5 transition-all" data-point="Week 2: 52% velocity"></circle>
+                    <circle cx="100" cy="10" r="3.5" class="fill-secondary cursor-pointer hover:r-5 transition-all" data-point="Week 3: 68% velocity"></circle>
+                    <circle cx="160" cy="4" r="4.5" class="fill-primary cursor-pointer hover:r-6 transition-all" data-point="Current: 71.4% (Top Tier)"></circle>
+                  </svg>
+                  <div class="text-[10px] text-outline font-mono text-right">Hover nodes for data telemetry</div>
+                </div>
+              </div>
+
             </div>
 
-            <h3>CareMate</h3>
+          </div>
+        </article>
 
-            <p>
-              An elderly-care management application designed to help family
-              members manage medicine schedules, appointments, reminders,
-              elderly profiles, and AI-assisted care support remotely.
-            </p>
+        <!-- ========================================================= -->
+        <!-- PROJECT 02: AI RESUME MATCHER                             -->
+        <!-- ========================================================= -->
+        <article class="bg-surface-container-lowest rounded-3xl p-6 sm:p-10 shadow-scrapbook border border-outline-variant/30 relative tactile-card group" id="project-card-2">
+          <!-- Masking Tape Badge -->
+          <div class="washi-tape washi-tape-sage top-[-14px] left-10 w-48 h-7 rotate-1 flex items-center justify-center text-xs font-mono font-bold text-on-secondary-container uppercase tracking-wider">
+            EXP.02 // NLP &amp; VECTOR ML
+          </div>
 
-            <div class="project-highlights">
-              <span>Medicine Scheduling</span>
-              <span>Appointments</span>
-              <span>Notifications</span>
-              <span>AI Assistant</span>
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 pt-2">
+            
+            <!-- Narrative Details -->
+            <div class="lg:col-span-5 flex flex-col justify-between space-y-5">
+              <div>
+                <div class="flex items-center gap-2 text-secondary text-xs font-bold uppercase tracking-wider mb-2">
+                  <span>Semantic Intelligence</span>
+                  <span>•</span>
+                  <span>Cosine Similarity</span>
+                </div>
+                <h3 class="font-serif text-3xl sm:text-4xl text-primary font-medium leading-tight">
+                  AI Resume Matcher
+                </h3>
+                <p class="text-sm sm:text-base text-on-surface-variant mt-3 leading-relaxed">
+                  An intelligent text analytics tool comparing candidate CVs with target job descriptions in real-time. Highlights key skill affinities, flags crucial domain gaps, and computes vector-space similarity to empower transparent job matching.
+                </p>
+              </div>
+
+              <!-- Tech Badges -->
+              <div class="flex flex-wrap gap-1.5">
+                <span class="px-2.5 py-1 rounded-lg bg-surface-container-low text-primary text-xs font-semibold border border-outline-variant/20">Python 3.10</span>
+                <span class="px-2.5 py-1 rounded-lg bg-surface-container-low text-primary text-xs font-semibold border border-outline-variant/20">Scikit-learn</span>
+                <span class="px-2.5 py-1 rounded-lg bg-surface-container-low text-primary text-xs font-semibold border border-outline-variant/20">FastAPI</span>
+                <span class="px-2.5 py-1 rounded-lg bg-surface-container-low text-primary text-xs font-semibold border border-outline-variant/20">NLP · TF-IDF</span>
+                <span class="px-2.5 py-1 rounded-lg bg-surface-container-low text-primary text-xs font-semibold border border-outline-variant/20">React</span>
+              </div>
+
+              <!-- Dev Notes Card -->
+              <div class="p-3.5 bg-secondary-fixed/40 rounded-xl border border-secondary/20 relative shadow-xs">
+                <div class="text-[11px] font-bold text-secondary uppercase tracking-wider">Dev Notes • Token Alignment</div>
+                <p class="font-serif italic text-sm text-on-surface mt-1">
+                  “Keyword extraction &amp; semantic cosine vector breakdown with high precision against noisy formatting.”
+                </p>
+              </div>
+
+              <!-- Action Buttons -->
+              <div class="flex flex-wrap items-center gap-3 pt-2">
+                <button onclick="openModal('resumeMatcherModal')" class="px-5 py-2.5 bg-primary text-on-primary rounded-xl text-xs font-bold uppercase tracking-wider hover:bg-primary-container transition-all shadow-xs flex items-center gap-2 active:translate-y-0.5">
+                  <span>View Case Study</span>
+                  <span class="material-symbols-outlined text-[16px]">menu_book</span>
+                </button>
+                <a href="https://github.com/lavanyapandit" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 bg-surface-container-low text-primary rounded-xl text-xs font-bold uppercase tracking-wider hover:bg-surface-container-high transition-all border border-outline-variant/30 flex items-center gap-2">
+                  <span class="material-symbols-outlined text-[16px]">code</span>
+                  <span>GitHub Repository</span>
+                </a>
+              </div>
             </div>
 
-            <div class="project-links">
-              <a href="#" aria-label="CareMate GitHub link">GitHub</a>
-              <span>Java • Spring Boot • PostgreSQL • Android</span>
+            <!-- Comparison Sheet Mockup Canvas with Interactive Roles -->
+            <div class="lg:col-span-7 bg-surface-container-low rounded-2xl p-5 border border-outline-variant/30 shadow-inner flex flex-col justify-between space-y-4">
+              
+              <!-- Role Preset Switcher & Match Gauge Header -->
+              <div class="flex flex-wrap items-center justify-between gap-3 bg-surface-container-lowest p-3 rounded-xl border border-outline-variant/20">
+                <div class="flex items-center gap-2">
+                  <label for="role-select" class="text-xs font-bold uppercase text-on-surface-variant">Target Role:</label>
+                  <select id="role-select" onchange="updateResumeSimulation(this.value)" class="text-xs font-semibold bg-surface-container-low border border-outline-variant/40 rounded-lg px-2.5 py-1 text-primary focus:outline-none focus:ring-1 focus:ring-primary">
+                    <option value="backend">Senior Backend Engineer (Java / Spring)</option>
+                    <option value="cv">Computer Vision SWE (Python / OpenCV)</option>
+                    <option value="cloud">Cloud &amp; DevOps Specialist (AWS / Docker)</option>
+                  </select>
+                </div>
+                
+                <div class="flex items-center gap-2">
+                  <span class="w-3 h-3 rounded-full bg-secondary-container"></span>
+                  <span id="match-score-text" class="font-serif text-xl font-bold text-primary">88.4% Match</span>
+                </div>
+              </div>
+
+              <!-- Side-by-Side Highlighted Comparison -->
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                
+                <!-- Resume Extracted Sheet -->
+                <div class="bg-surface-container-lowest p-3.5 rounded-xl border border-outline-variant/20 text-xs leading-relaxed flex flex-col justify-between">
+                  <div>
+                    <div class="flex items-center justify-between text-outline pb-1.5 border-b border-outline-variant/20 font-mono text-[11px] mb-2">
+                      <span>CANDIDATE_CV.MD</span>
+                      <span class="material-symbols-outlined text-[15px]">description</span>
+                    </div>
+                    <p class="text-on-surface-variant" id="cv-text-preview">
+                      Architected high-throughput services utilizing <mark class="bg-secondary-container text-on-secondary-container px-1 rounded font-semibold transition-colors duration-200" data-token="spring">Java Spring Boot</mark> and relational storage via <mark class="bg-secondary-container text-on-secondary-container px-1 rounded font-semibold transition-colors duration-200" data-token="postgres">PostgreSQL</mark>. Implemented <mark class="bg-secondary-container text-on-secondary-container px-1 rounded font-semibold transition-colors duration-200" data-token="rest">REST API</mark> endpoints with stateless JWT security.
+                    </p>
+                  </div>
+                  <div class="text-[10px] font-mono text-outline mt-2 pt-1 border-t border-outline-variant/10">Tokens extracted: 48 terms</div>
+                </div>
+
+                <!-- Target Spec Sheet -->
+                <div class="bg-surface-container-lowest p-3.5 rounded-xl border border-outline-variant/20 text-xs leading-relaxed flex flex-col justify-between">
+                  <div>
+                    <div class="flex items-center justify-between text-outline pb-1.5 border-b border-outline-variant/20 font-mono text-[11px] mb-2">
+                      <span>ROLE_SPECIFICATION.TXT</span>
+                      <span class="material-symbols-outlined text-[15px]">receipt_long</span>
+                    </div>
+                    <p class="text-on-surface-variant" id="spec-text-preview">
+                      Seeking a developer with strong mastery of <mark class="bg-secondary-container text-on-secondary-container px-1 rounded font-semibold transition-colors duration-200" data-token="spring">Java</mark>, solid grasp of <mark class="bg-secondary-container text-on-secondary-container px-1 rounded font-semibold transition-colors duration-200" data-token="postgres">PostgreSQL</mark>, and experience deploying with <mark class="bg-tertiary-fixed text-on-tertiary-fixed px-1 rounded font-semibold transition-colors duration-200" data-token="docker">Docker Containers</mark>.
+                    </p>
+                  </div>
+                  <div class="text-[10px] font-mono text-outline mt-2 pt-1 border-t border-outline-variant/10">Required tokens: 52 terms</div>
+                </div>
+
+              </div>
+
+              <!-- Interactive Token Affinity Pills (Clickable!) -->
+              <div class="bg-surface-container-lowest p-3.5 rounded-xl border border-outline-variant/20">
+                <div class="flex items-center justify-between text-xs font-bold text-on-surface-variant mb-2 uppercase">
+                  <span>Interactive Token Affinity</span>
+                  <span class="text-[10px] font-mono font-normal">Click token to spotlight</span>
+                </div>
+                <div class="flex flex-wrap gap-2 text-xs" id="token-pill-container">
+                  <button onclick="highlightToken('spring')" class="px-2.5 py-1 rounded-lg bg-secondary-container text-on-secondary-container font-semibold hover:bg-secondary-fixed transition-colors flex items-center gap-1">
+                    <span>&check; Spring Boot (1.00)</span>
+                  </button>
+                  <button onclick="highlightToken('postgres')" class="px-2.5 py-1 rounded-lg bg-secondary-container text-on-secondary-container font-semibold hover:bg-secondary-fixed transition-colors flex items-center gap-1">
+                    <span>&check; PostgreSQL (0.96)</span>
+                  </button>
+                  <button onclick="highlightToken('rest')" class="px-2.5 py-1 rounded-lg bg-secondary-container text-on-secondary-container font-semibold hover:bg-secondary-fixed transition-colors flex items-center gap-1">
+                    <span>&check; REST APIs (0.92)</span>
+                  </button>
+                  <button onclick="highlightToken('docker')" class="px-2.5 py-1 rounded-lg bg-tertiary-fixed text-on-tertiary-fixed font-semibold hover:bg-tertiary-container transition-colors flex items-center gap-1">
+                    <span>! Docker (Gap Flagged)</span>
+                  </button>
+                </div>
+              </div>
+
             </div>
-          </article>
 
-          <article class="project-card">
-            <div class="project-visual project-image-wrap">
-              <img class="project-image" src="assets/images/projects/windows-planner.svg" alt="Windows Planner project interface preview">
+          </div>
+        </article>
+
+        <!-- ========================================================= -->
+        <!-- PROJECT 03: GESTURE-BASED MEDIA CONTROLLER               -->
+        <!-- ========================================================= -->
+        <article class="bg-surface-container-lowest rounded-3xl p-6 sm:p-10 shadow-scrapbook border border-outline-variant/30 relative tactile-card group" id="project-card-3">
+          <!-- Masking Tape Badge -->
+          <div class="washi-tape top-[-14px] left-10 w-52 h-7 -rotate-2 flex items-center justify-center text-xs font-mono font-bold text-on-tertiary-fixed uppercase tracking-wider">
+            EXP.03 // COMPUTER VISION &amp; HCI
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 pt-2">
+            
+            <!-- Narrative Details -->
+            <div class="lg:col-span-5 flex flex-col justify-between space-y-5">
+              <div>
+                <div class="flex items-center gap-2 text-secondary text-xs font-bold uppercase tracking-wider mb-2">
+                  <span>Physical Computing</span>
+                  <span>•</span>
+                  <span>Real-Time CV</span>
+                </div>
+                <h3 class="font-serif text-3xl sm:text-4xl text-primary font-medium leading-tight">
+                  Gesture-Based Media Controller
+                </h3>
+                <p class="text-sm sm:text-base text-on-surface-variant mt-3 leading-relaxed">
+                  A touchless human-machine interface utilizing standard webcam feeds. Translates finger distances into dynamic system audio, vertical sweeps into display brightness, and hand poses into playback toggles and immediate screenshots—smoothed with EMA filters.
+                </p>
+              </div>
+
+              <!-- Tech Badges -->
+              <div class="flex flex-wrap gap-1.5">
+                <span class="px-2.5 py-1 rounded-lg bg-surface-container-low text-primary text-xs font-semibold border border-outline-variant/20">Python 3.9</span>
+                <span class="px-2.5 py-1 rounded-lg bg-surface-container-low text-primary text-xs font-semibold border border-outline-variant/20">OpenCV</span>
+                <span class="px-2.5 py-1 rounded-lg bg-surface-container-low text-primary text-xs font-semibold border border-outline-variant/20">MediaPipe</span>
+                <span class="px-2.5 py-1 rounded-lg bg-surface-container-low text-primary text-xs font-semibold border border-outline-variant/20">Pycaw Audio</span>
+                <span class="px-2.5 py-1 rounded-lg bg-surface-container-low text-primary text-xs font-semibold border border-outline-variant/20">PyAutoGUI</span>
+              </div>
+
+              <!-- Dev Notes Card -->
+              <div class="p-3.5 bg-tertiary-fixed/30 rounded-xl border border-tertiary/20 relative shadow-xs">
+                <div class="text-[11px] font-bold text-tertiary uppercase tracking-wider">Dev Notes • Jitter Mitigation</div>
+                <p class="font-serif italic text-sm text-on-surface mt-1">
+                  “Implemented Euclidean threshold hysteresis &amp; exponential moving average smoothing to eliminate false-trigger clicks.”
+                </p>
+              </div>
+
+              <!-- Action Buttons -->
+              <div class="flex flex-wrap items-center gap-3 pt-2">
+                <button onclick="openModal('gestureControllerModal')" class="px-5 py-2.5 bg-primary text-on-primary rounded-xl text-xs font-bold uppercase tracking-wider hover:bg-primary-container transition-all shadow-xs flex items-center gap-2 active:translate-y-0.5">
+                  <span>View Case Study</span>
+                  <span class="material-symbols-outlined text-[16px]">menu_book</span>
+                </button>
+                <a href="https://github.com/lavanyapandit" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 bg-surface-container-low text-primary rounded-xl text-xs font-bold uppercase tracking-wider hover:bg-surface-container-high transition-all border border-outline-variant/30 flex items-center gap-2">
+                  <span class="material-symbols-outlined text-[16px]">code</span>
+                  <span>GitHub Repository</span>
+                </a>
+              </div>
             </div>
 
-            <div class="project-meta">
-              <span class="pill">Web / Software</span>
-              <span>2026</span>
+            <!-- Video Stream & Interactive Skeletal Simulator -->
+            <div class="lg:col-span-7 bg-surface-container-low rounded-2xl p-5 border border-outline-variant/30 shadow-inner flex flex-col justify-between space-y-4 relative">
+              
+              <!-- Simulated Webcam Viewport -->
+              <div class="w-full h-64 bg-primary/95 rounded-xl relative overflow-hidden flex items-center justify-center p-4 border border-outline-variant/30 select-none cursor-crosshair" id="gesture-screen" onmousemove="simulateHandMovement(event)">
+                
+                <!-- Background subtle grid -->
+                <div class="absolute inset-0 opacity-10 bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:20px_20px] pointer-events-none"></div>
+
+                <!-- Interactive Skeletal Hand SVG Graphic -->
+                <svg class="w-56 h-56 text-secondary-fixed stroke-current fill-none transition-transform duration-75" viewBox="0 0 100 100" id="skeletal-hand-svg">
+                  <!-- Palm Center -->
+                  <circle class="fill-secondary" cx="50" cy="70" r="4"></circle>
+                  <!-- Wrist -->
+                  <circle class="fill-outline" cx="50" cy="90" r="3"></circle>
+                  <path d="M50 90 L50 70" stroke-dasharray="2 2" stroke-width="1.5"></path>
+                  
+                  <!-- Thumb Line & Knots -->
+                  <path d="M50 70 L35 60 L25 50 L20 40" stroke-width="2"></path>
+                  <circle id="thumb-tip" class="fill-tertiary-fixed stroke-primary transition-all duration-75" cx="20" cy="40" r="4"></circle>
+                  
+                  <!-- Index Finger Line & Knots -->
+                  <path d="M50 70 L42 45 L38 30 L35 18" stroke-width="2"></path>
+                  <circle id="index-tip" class="fill-tertiary-fixed stroke-primary transition-all duration-75" cx="35" cy="18" r="4"></circle>
+                  
+                  <!-- Euclidean Distance Span Line -->
+                  <line id="euclidean-line" class="text-tertiary-fixed" stroke="currentColor" stroke-dasharray="3 3" stroke-width="1.5" x1="20" y1="40" x2="35" y2="18"></line>
+                  
+                  <!-- Middle, Ring, Pinky Hand Skeletal Bones -->
+                  <path d="M50 70 L50 40 L50 25 L50 14" stroke-opacity="0.6" stroke-width="1.5"></path>
+                  <circle class="fill-secondary-container" cx="50" cy="14" r="3"></circle>
+                  
+                  <path d="M50 70 L58 42 L62 28 L64 19" stroke-opacity="0.6" stroke-width="1.5"></path>
+                  <circle class="fill-secondary-container" cx="64" cy="19" r="3"></circle>
+                  
+                  <path d="M50 70 L66 48 L73 38 L78 30" stroke-opacity="0.6" stroke-width="1.5"></path>
+                  <circle class="fill-secondary-container" cx="78" cy="30" r="3"></circle>
+                </svg>
+
+                <!-- In-Cam Live Telemetry Pill -->
+                <div class="absolute top-3 left-3 bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-lg text-[10px] font-mono text-white flex items-center gap-2 border border-white/10">
+                  <span class="w-2 h-2 rounded-full bg-error animate-pulse"></span>
+                  <span>CAM: 60 FPS · 21 LANDMARKS TRACKED</span>
+                </div>
+
+                <!-- Distance Metric Badge -->
+                <div class="absolute top-3 right-3 bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-lg text-[10px] font-mono text-tertiary-fixed border border-white/10">
+                  <span id="euclidean-distance-label">&Delta; PINCH: 32px</span>
+                </div>
+
+                <!-- Live Gesture Status Pill -->
+                <div class="absolute bottom-3 right-3 bg-primary-container text-on-primary-container px-3 py-1.5 rounded-lg font-mono text-xs font-semibold shadow-md border border-on-primary-container/20 flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-secondary-container"></span>
+                  <span id="gesture-status-label">VOL_CONTROL: 78%</span>
+                </div>
+
+                <!-- Interaction Hint -->
+                <div class="absolute bottom-3 left-3 text-[10px] font-mono text-white/60 pointer-events-none">
+                  Move cursor here to pinch &amp; gesture
+                </div>
+
+              </div>
+
+              <!-- Interactive Gesture Trigger Shortcuts -->
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-1 text-center">
+                <button onclick="testGesture('pinch')" class="p-2.5 bg-surface-container-lowest hover:bg-secondary-container/50 rounded-xl border border-outline-variant/20 transition-all hover:scale-[1.02] text-left">
+                  <div class="text-[11px] font-bold text-secondary uppercase flex items-center justify-between">
+                    <span>Pinch Tip</span>
+                    <span class="material-symbols-outlined text-[14px]">tune</span>
+                  </div>
+                  <div class="text-xs font-semibold text-primary mt-0.5">Volume &plusmn;</div>
+                </button>
+
+                <button onclick="testGesture('swipe')" class="p-2.5 bg-surface-container-lowest hover:bg-secondary-container/50 rounded-xl border border-outline-variant/20 transition-all hover:scale-[1.02] text-left">
+                  <div class="text-[11px] font-bold text-secondary uppercase flex items-center justify-between">
+                    <span>Vertical Swipe</span>
+                    <span class="material-symbols-outlined text-[14px]">brightness_6</span>
+                  </div>
+                  <div class="text-xs font-semibold text-primary mt-0.5">Luminance</div>
+                </button>
+
+                <button onclick="testGesture('fist')" class="p-2.5 bg-surface-container-lowest hover:bg-secondary-container/50 rounded-xl border border-outline-variant/20 transition-all hover:scale-[1.02] text-left">
+                  <div class="text-[11px] font-bold text-secondary uppercase flex items-center justify-between">
+                    <span>Fist &harr; Palm</span>
+                    <span class="material-symbols-outlined text-[14px]">play_pause</span>
+                  </div>
+                  <div class="text-xs font-semibold text-primary mt-0.5">Play / Pause</div>
+                </button>
+
+                <button onclick="testGesture('palm')" class="p-2.5 bg-surface-container-lowest hover:bg-secondary-container/50 rounded-xl border border-outline-variant/20 transition-all hover:scale-[1.02] text-left">
+                  <div class="text-[11px] font-bold text-secondary uppercase flex items-center justify-between">
+                    <span>Open Palm 2s</span>
+                    <span class="material-symbols-outlined text-[14px]">photo_camera</span>
+                  </div>
+                  <div class="text-xs font-semibold text-primary mt-0.5">Screenshot</div>
+                </button>
+              </div>
+
             </div>
 
-            <h3>Windows Planner</h3>
+          </div>
+        </article>
 
-            <p>
-              A desktop productivity application concept focused on planning,
-              persistent desktop widgets, focus management, and reducing
-              distractions while studying or working.
-            </p>
-
-            <div class="project-links">
-              <a href="#" aria-label="Windows Planner project link">Project</a>
-              <span>Desktop • Productivity • Systems</span>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <div class="project-visual project-image-wrap">
-              <img class="project-image" src="assets/images/projects/acm-vit.svg" alt="ACM VIT Bhopal website project preview">
-            </div>
-
-            <div class="project-meta">
-              <span class="pill">Campus / Web</span>
-              <span>2026</span>
-            </div>
-
-            <h3>ACM VIT Bhopal Website</h3>
-
-            <p>
-              A creative 3D virtual-tech-campus website concept for showcasing
-              ACM activities, team members, events, projects, and the chapter's
-              technology community.
-            </p>
-
-            <div class="project-links">
-              <a href="#" aria-label="ACM website project link">Project</a>
-              <span>3D UI • Web • Interactive Design</span>
-            </div>
-          </article>
-        </div>
       </div>
+
     </section>
 
-    <section class="section" id="experience">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">Leadership &amp; Experience</span>
-          <h2>Learning beyond the classroom.</h2>
-          <p>
-            Technical, creative, and community-focused roles that have helped
-            me work with teams and contribute to campus initiatives.
-          </p>
-        </div>
-
-        <div class="timeline">
-          <article class="timeline-card">
-            <h3>ACM VIT Bhopal</h3>
-            <div class="role">Technical Team Core Member</div>
-            <p>
-              Contributing to technical initiatives, development work, and
-              technology-focused activities within the ACM student chapter.
-            </p>
-          </article>
-
-          <article class="timeline-card">
-            <h3>Android Club — VIT Bhopal</h3>
-            <div class="role">Design Team Lead</div>
-            <p>
-              Leading design-oriented work for Android Club initiatives,
-              technical events, promotional assets, and student engagement.
-            </p>
-          </article>
-
-          <article class="timeline-card">
-            <h3>Nature & Trekking Club</h3>
-            <div class="role">Event Management Team Core Member</div>
-            <p>
-              Supporting event planning, coordination, execution, and
-              team collaboration for campus activities.
-            </p>
-          </article>
-
-          <article class="timeline-card">
-            <h3>Unnat Bharat Abhiyan</h3>
-            <div class="role">Volunteer</div>
-            <p>
-              Participating in community-oriented initiatives and activities
-              connected with social impact and outreach.
-            </p>
-          </article>
-        </div>
+    <!-- ========================================== -->
+    <!-- SECTION 4: TECHNICAL TOOLKIT WORKBENCH     -->
+    <!-- ========================================== -->
+    <section class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20" id="skills">
+      
+      <!-- Section Header Tag -->
+      <div class="flex items-center gap-3 mb-2">
+        <span class="text-xs font-bold tracking-widest uppercase text-secondary">Chapter 03 // Practical Craft</span>
+        <div class="h-0.5 w-16 bg-secondary-container"></div>
       </div>
-    </section>
+      
+      <h2 class="font-serif text-4xl sm:text-5xl text-primary font-normal tracking-tight">
+        Tools I like to build with.
+      </h2>
+      <p class="font-serif italic text-xl text-on-surface-variant mb-12">
+        Technologies are tools. Knowing where and how to use them is the interesting part.
+      </p>
 
-    <section class="section" id="certifications">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">Certifications</span>
-          <h2>Continuous learning across technology.</h2>
-          <p>
-            Selected certifications and learning programs supporting my
-            software engineering and technology foundations.
-          </p>
-        </div>
-
-        <div class="cert-grid">
-          <article class="cert-card">
-            <span class="cert-number">01</span>
-            <h3>The Bits and Bytes of Computer Networking</h3>
-            <p>Google • Issued November 2025</p>
-          </article>
-
-          <article class="cert-card">
-            <span class="cert-number">02</span>
-            <h3>ServiceNow Virtual Internship Program</h3>
-            <p>AICTE + SmartBridge • AI, workflows, testing & reporting</p>
-          </article>
-
-          <article class="cert-card">
-            <span class="cert-number">03</span>
-            <h3>Programming in Java</h3>
-            <p>Vityarthi • Java programming foundations</p>
-          </article>
-
-          <article class="cert-card">
-            <span class="cert-number">04</span>
-            <h3>Python Essentials</h3>
-            <p>Vityarthi • Python programming foundations</p>
-          </article>
-
-          <article class="cert-card">
-            <span class="cert-number">05</span>
-            <h3>Fundamentals in AI and ML</h3>
-            <p>Vityarthi • Artificial Intelligence & Machine Learning</p>
-          </article>
-
-          <article class="cert-card">
-            <span class="cert-number">06</span>
-            <h3>Marketing Analytics</h3>
-            <p>NPTEL • Score: 94%</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="contact">
-      <div class="container">
-        <div class="contact-box">
+      <!-- Curated Workspace Tool Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Box 1: Core Engineering -->
+        <div class="bg-surface-container-lowest p-6 rounded-2xl shadow-scrapbook-sm border border-outline-variant/30 hover:border-primary/40 transition-all tactile-card flex flex-col justify-between relative group">
+          <div class="washi-tape top-[-10px] left-4 w-24 h-5 -rotate-2"></div>
           <div>
-            <span class="eyebrow">Contact</span>
-
-            <h2>Let's build something meaningful.</h2>
-
-            <p>
-              I'm currently looking for internship opportunities, software
-              development roles, and collaborative projects where I can
-              contribute, learn, and build useful technology.
+            <div class="flex items-center justify-between pb-2 text-secondary border-b border-outline-variant/20">
+              <span class="material-symbols-outlined text-[24px]">terminal</span>
+              <span class="text-[11px] font-bold uppercase tracking-wider">LANGUAGES</span>
+            </div>
+            
+            <h3 class="font-serif text-2xl text-primary font-semibold mt-3">Core Engineering</h3>
+            <p class="text-xs text-on-surface-variant mt-1">
+              Foundations in structured object-oriented software and scripting.
             </p>
 
-            <div class="contact-actions">
-              <!-- Replace the placeholder email with your actual email -->
-              <a class="btn btn-primary" href="mailto:YOUR_EMAIL@example.com">
-                Email Me
-              </a>
+            <div class="space-y-3 mt-4">
+              <div class="p-3 bg-surface-container-low rounded-xl border border-outline-variant/20">
+                <div class="flex items-center justify-between">
+                  <span class="text-sm font-bold text-primary">Java</span>
+                  <span class="text-[10px] font-mono px-2 py-0.5 bg-primary-container text-on-primary rounded font-bold uppercase">Core Focus</span>
+                </div>
+                <p class="text-[11px] text-on-surface-variant mt-1 leading-relaxed">
+                  OOP design patterns, Collections API, Multi-threading, and enterprise backends.
+                </p>
+              </div>
 
-              <!-- Replace with your actual GitHub -->
-              <a class="btn btn-secondary"
-                 href="https://github.com/YOUR_USERNAME"
-                 target="_blank"
-                 rel="noreferrer">
-                GitHub
-              </a>
-
-              <!-- Replace with your actual LinkedIn -->
-              <a class="btn btn-secondary"
-                 href="https://www.linkedin.com/in/YOUR_USERNAME"
-                 target="_blank"
-                 rel="noreferrer">
-                LinkedIn
-              </a>
+              <div class="p-3 bg-surface-container-low rounded-xl border border-outline-variant/20">
+                <div class="flex items-center justify-between">
+                  <span class="text-sm font-bold text-primary">Python</span>
+                  <span class="text-[10px] font-mono px-2 py-0.5 bg-tertiary text-on-tertiary rounded font-bold uppercase">Vision &amp; ML</span>
+                </div>
+                <p class="text-[11px] text-on-surface-variant mt-1 leading-relaxed">
+                  Computer vision pipelines, numerical arrays, NLP processing, and rapid APIs.
+                </p>
+              </div>
             </div>
           </div>
+          
+          <div class="mt-4 pt-3 border-t border-outline-variant/20 text-[11px] font-mono text-outline">
+            // Solid fundamentals over transient hype
+          </div>
         </div>
+
+        <!-- Box 2: Computer Vision -->
+        <div class="bg-surface-container-lowest p-6 rounded-2xl shadow-scrapbook-sm border border-outline-variant/30 hover:border-secondary/40 transition-all tactile-card flex flex-col justify-between relative group">
+          <div class="washi-tape washi-tape-sage top-[-10px] left-4 w-24 h-5 rotate-1"></div>
+          <div>
+            <div class="flex items-center justify-between pb-2 text-secondary border-b border-outline-variant/20">
+              <span class="material-symbols-outlined text-[24px]">visibility</span>
+              <span class="text-[11px] font-bold uppercase tracking-wider">PERCEPTION</span>
+            </div>
+            
+            <h3 class="font-serif text-2xl text-primary font-semibold mt-3">Computer Vision</h3>
+            <p class="text-xs text-on-surface-variant mt-1">
+              Bridging pixel arrays to physical human interactions.
+            </p>
+
+            <div class="space-y-3 mt-4">
+              <div class="p-3 bg-surface-container-low rounded-xl border border-outline-variant/20">
+                <div class="flex items-center justify-between">
+                  <span class="text-sm font-bold text-primary">OpenCV</span>
+                  <span class="text-[10px] font-mono px-2 py-0.5 bg-secondary text-on-secondary rounded font-bold uppercase">Image Pipeline</span>
+                </div>
+                <p class="text-[11px] text-on-surface-variant mt-1 leading-relaxed">
+                  Color space mapping, frame-rate capture, thresholding, and continuous matrix math.
+                </p>
+              </div>
+
+              <div class="p-3 bg-surface-container-low rounded-xl border border-outline-variant/20">
+                <div class="flex items-center justify-between">
+                  <span class="text-sm font-bold text-primary">MediaPipe</span>
+                  <span class="text-[10px] font-mono px-2 py-0.5 bg-secondary text-on-secondary rounded font-bold uppercase">3D Landmarks</span>
+                </div>
+                <p class="text-[11px] text-on-surface-variant mt-1 leading-relaxed">
+                  21 3D hand skeletal coordinate tracking with low compute overhead for zero latency.
+                </p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="mt-4 pt-3 border-t border-outline-variant/20 text-[11px] font-mono text-outline">
+            // Real-time camera heuristics
+          </div>
+        </div>
+
+        <!-- Box 3: Systems & Data -->
+        <div class="bg-surface-container-lowest p-6 rounded-2xl shadow-scrapbook-sm border border-outline-variant/30 hover:border-tertiary/40 transition-all tactile-card flex flex-col justify-between relative group">
+          <div class="washi-tape top-[-10px] left-4 w-24 h-5 -rotate-1"></div>
+          <div>
+            <div class="flex items-center justify-between pb-2 text-secondary border-b border-outline-variant/20">
+              <span class="material-symbols-outlined text-[24px]">database</span>
+              <span class="text-[11px] font-bold uppercase tracking-wider">BACKEND &amp; WEB</span>
+            </div>
+            
+            <h3 class="font-serif text-2xl text-primary font-semibold mt-3">Systems &amp; Data</h3>
+            <p class="text-xs text-on-surface-variant mt-1">
+              Constructing reliable services and structured data persistence.
+            </p>
+
+            <div class="space-y-3 mt-4">
+              <div class="p-3 bg-surface-container-low rounded-xl border border-outline-variant/20">
+                <div class="flex items-center justify-between">
+                  <span class="text-sm font-bold text-primary">Spring Boot</span>
+                  <span class="text-[10px] font-mono px-2 py-0.5 bg-primary-container text-on-primary rounded font-bold uppercase">MVC · JPA</span>
+                </div>
+                <p class="text-[11px] text-on-surface-variant mt-1 leading-relaxed">
+                  IoC, Hibernate mapping, Spring Security with stateless JWT tokens, validation logic.
+                </p>
+              </div>
+
+              <div class="p-3 bg-surface-container-low rounded-xl border border-outline-variant/20">
+                <div class="flex items-center justify-between">
+                  <span class="text-sm font-bold text-primary">PostgreSQL</span>
+                  <span class="text-[10px] font-mono px-2 py-0.5 bg-primary-container text-on-primary rounded font-bold uppercase">RDBMS</span>
+                </div>
+                <p class="text-[11px] text-on-surface-variant mt-1 leading-relaxed">
+                  Normalized relational modeling, indexing for fast analytics queries, transactions.
+                </p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="mt-4 pt-3 border-t border-outline-variant/20 text-[11px] font-mono text-outline">
+            // Relational integrity &amp; REST specs
+          </div>
+        </div>
+
+        <!-- Box 4: Tooling & Flow -->
+        <div class="bg-surface-container-lowest p-6 rounded-2xl shadow-scrapbook-sm border border-outline-variant/30 hover:border-secondary/40 transition-all tactile-card flex flex-col justify-between relative group">
+          <div class="washi-tape washi-tape-sage top-[-10px] left-4 w-24 h-5 rotate-2"></div>
+          <div>
+            <div class="flex items-center justify-between pb-2 text-secondary border-b border-outline-variant/20">
+              <span class="material-symbols-outlined text-[24px]">handyman</span>
+              <span class="text-[11px] font-bold uppercase tracking-wider">WORKFLOW</span>
+            </div>
+            
+            <h3 class="font-serif text-2xl text-primary font-semibold mt-3">Tooling &amp; Flow</h3>
+            <p class="text-xs text-on-surface-variant mt-1">
+              Everyday software craft essentials that keep development disciplined.
+            </p>
+
+            <div class="space-y-3 mt-4">
+              <div class="p-3 bg-surface-container-low rounded-xl border border-outline-variant/20">
+                <div class="flex items-center justify-between">
+                  <span class="text-sm font-bold text-primary">Git &amp; GitHub</span>
+                  <span class="text-[10px] font-mono px-2 py-0.5 bg-secondary text-on-secondary rounded font-bold uppercase">VCS</span>
+                </div>
+                <p class="text-[11px] text-on-surface-variant mt-1 leading-relaxed">
+                  Atomic commits, semantic branch conventions, pull requests, code reviews.
+                </p>
+              </div>
+
+              <div class="p-3 bg-surface-container-low rounded-xl border border-outline-variant/20">
+                <div class="flex items-center justify-between">
+                  <span class="text-sm font-bold text-primary">Postman &amp; IDEs</span>
+                  <span class="text-[10px] font-mono px-2 py-0.5 bg-secondary text-on-secondary rounded font-bold uppercase">Testing</span>
+                </div>
+                <p class="text-[11px] text-on-surface-variant mt-1 leading-relaxed">
+                  IntelliJ IDEA for deep Java refactoring, Postman collections for endpoint tests.
+                </p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="mt-4 pt-3 border-t border-outline-variant/20 text-[11px] font-mono text-outline">
+            // Clean workspaces lead to clean builds
+          </div>
+        </div>
+
       </div>
+
     </section>
+
+    
+
+    <!-- ========================================== -->
+    <!-- SECTION 6: BEYOND THE CODE                 -->
+    <!-- ========================================== -->
+    <section class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20" id="beyond-code">
+      
+      <!-- Section Header Tag -->
+      <div class="flex items-center gap-3 mb-2">
+        <span class="text-xs font-bold tracking-widest uppercase text-secondary">Chapter 05 // Human Layer</span>
+        <div class="h-0.5 w-16 bg-secondary-container"></div>
+      </div>
+      
+      <h2 class="font-serif text-4xl sm:text-5xl text-primary font-normal tracking-tight">
+        Beyond the code.
+      </h2>
+      <p class="font-serif italic text-xl text-on-surface-variant mb-12">
+        Curiosity isn’t confined to an IDE. Here’s what keeps my mind grounded and creative.
+      </p>
+
+      <!-- Curated Stationery Mosaic Cards (Polaroid & Card Style) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Note 1 -->
+        <div class="bg-surface-container-lowest p-6 rounded-2xl shadow-scrapbook-sm border border-outline-variant/30 rotate-[-1.5deg] relative tactile-card">
+          <div class="washi-tape top-[-8px] left-6 w-20 h-4"></div>
+          <div class="w-10 h-10 rounded-xl bg-secondary-container text-on-secondary-container flex items-center justify-center mb-4">
+            <span class="material-symbols-outlined text-[20px]">lightbulb</span>
+          </div>
+          <h4 class="font-serif text-xl text-primary font-semibold">Curiosity Log</h4>
+          <p class="text-xs text-on-surface-variant mt-2 leading-relaxed">
+            Passionate about intuitive tools that make everyday administrative tasks feel calm, organized, and effortlessly quiet.
+          </p>
+        </div>
+
+        <!-- Note 2 -->
+        <div class="bg-tertiary-fixed/30 p-6 rounded-2xl shadow-scrapbook-sm border border-tertiary/20 rotate-[1.5deg] relative tactile-card">
+          <div class="washi-tape top-[-8px] right-6 w-20 h-4"></div>
+          <div class="w-10 h-10 rounded-xl bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center mb-4">
+            <span class="material-symbols-outlined text-[20px]">draw</span>
+          </div>
+          <h4 class="font-serif text-xl text-primary font-semibold">Desk Essentials</h4>
+          <p class="text-xs text-on-surface-variant mt-2 leading-relaxed">
+            A physical grid-lined paper journal, Pilot G2 gel pens, freshly brewed black coffee, and instrumental ambient lo-fi sessions.
+          </p>
+        </div>
+
+        <!-- Note 3 -->
+        <div class="bg-surface-container-lowest p-6 rounded-2xl shadow-scrapbook-sm border border-outline-variant/30 rotate-[-0.8deg] relative tactile-card">
+          <div class="washi-tape washi-tape-sage top-[-8px] left-8 w-20 h-4"></div>
+          <div class="w-10 h-10 rounded-xl bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center mb-4">
+            <span class="material-symbols-outlined text-[20px]">psychology</span>
+          </div>
+          <h4 class="font-serif text-xl text-primary font-semibold">Current Rabbit Hole</h4>
+          <p class="text-xs text-on-surface-variant mt-2 leading-relaxed">
+            Reading deeply about tangible user interfaces (TUI), ergonomic affordances, and bridging physical gesture to system states.
+          </p>
+        </div>
+
+        <!-- Note 4 -->
+        <div class="bg-secondary-container/40 p-6 rounded-2xl shadow-scrapbook-sm border border-secondary/20 rotate-[1.2deg] relative tactile-card">
+          <div class="washi-tape top-[-8px] right-8 w-20 h-4"></div>
+          <div class="w-10 h-10 rounded-xl bg-secondary-container text-on-secondary-container flex items-center justify-center mb-4">
+            <span class="material-symbols-outlined text-[20px]">favorite</span>
+          </div>
+          <h4 class="font-serif text-xl text-primary font-semibold">Creative Ethos</h4>
+          <p class="text-xs text-on-surface-variant mt-2 leading-relaxed">
+            “Write clean code like you’re writing an honest letter to your future self: clear, patient, and respectful of the reader's time.”
+          </p>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SECTION 7: CONTACT NOTEBOOK PAGE           -->
+    <!-- ========================================== -->
+    <section class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20" id="contact">
+      
+      <!-- Large Archival Stationery Letter Sheet -->
+      <div class="bg-surface-container-lowest rounded-3xl p-6 sm:p-12 shadow-scrapbook-lg border border-outline-variant/30 relative">
+        
+        <!-- Washi Tape Accents -->
+        <div class="washi-tape top-[-14px] left-16 w-36 h-7 -rotate-2"></div>
+        <div class="washi-tape washi-tape-sage top-[-14px] right-16 w-36 h-7 rotate-2"></div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+          
+          <!-- Left Side: Warm Letter & Social Pathways -->
+          <div class="lg:col-span-6 flex flex-col justify-between space-y-6">
+            <div>
+              <div class="flex items-center gap-2 mb-2 text-xs font-bold tracking-widest uppercase text-secondary">
+                <span>The Last Page // Inquiries</span>
+              </div>
+              <h2 class="font-serif text-4xl sm:text-5xl text-primary font-normal tracking-tight">
+                Have something interesting in mind?
+              </h2>
+              <p class="font-serif italic text-lg text-on-surface-variant mt-2">
+                Let’s talk software, learning, or potential engineering opportunities.
+              </p>
+              <p class="text-sm sm:text-base text-on-surface-variant mt-4 leading-relaxed">
+                I’m actively seeking internships and software engineering opportunities where I can contribute to meaningful codebases, learn alongside thoughtful engineers, and solve genuine user challenges.
+              </p>
+            </div>
+
+            <!-- Quick Interactive Contacts -->
+            <div class="space-y-4">
+              
+              <!-- Direct Email Action with Copy Clip -->
+              <div class="p-4 bg-surface-container-low rounded-2xl border border-outline-variant/20 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <span class="material-symbols-outlined text-primary text-[22px]">mail</span>
+                  <div>
+                    <div class="text-[11px] font-bold text-on-surface-variant uppercase">Direct Email</div>
+                    <div class="text-sm sm:text-base font-semibold text-primary" id="emailAddressText">lavanyapandit148@gmail.com</div>
+                  </div>
+                </div>
+                <button onclick="copyEmailToClipboard()" class="px-3.5 py-1.5 bg-surface-container-lowest hover:bg-surface-container-high rounded-lg text-primary text-xs font-bold uppercase transition-colors flex items-center gap-1.5 shadow-xs border border-outline-variant/20 active:translate-y-0.5">
+                  <span class="material-symbols-outlined text-[15px]" id="copyIcon">content_copy</span>
+                  <span id="copyBtnLabel">Copy</span>
+                </button>
+              </div>
+
+              <!-- Resume Download & External Links -->
+              <div class="flex flex-wrap items-center gap-3">
+                <a href="#contact" onclick="alert('Resume PDF download initiated. Official CV available on request.'); return false;" class="px-5 py-2.5 bg-primary text-on-primary rounded-xl text-xs font-bold uppercase tracking-wider hover:bg-primary-container transition-all flex items-center gap-2 shadow-xs active:translate-y-0.5">
+                  <span class="material-symbols-outlined text-[18px]">download</span>
+                  <span>Download Resume (PDF)</span>
+                </a>
+                
+                <a href="https://github.com/lavanyapandit" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 bg-surface-container-low text-primary rounded-xl text-xs font-bold uppercase tracking-wider hover:bg-surface-container-high transition-all border border-outline-variant/30 flex items-center gap-2">
+                  <span class="material-symbols-outlined text-[18px]">terminal</span>
+                  <span>GitHub</span>
+                </a>
+                
+                <a href="https://linkedin.com/in/lavanyapandit" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 bg-surface-container-low text-primary rounded-xl text-xs font-bold uppercase tracking-wider hover:bg-surface-container-high transition-all border border-outline-variant/30 flex items-center gap-2">
+                  <span class="material-symbols-outlined text-[18px]">person</span>
+                  <span>LinkedIn</span>
+                </a>
+              </div>
+
+            </div>
+
+            <!-- Handwritten Closing Note -->
+            <div class="flex items-center gap-3 text-secondary pt-2">
+              <svg class="w-6 h-6 stroke-current fill-none" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span class="font-serif italic text-base text-primary">“Let’s make something useful. ✨”</span>
+            </div>
+
+          </div>
+
+          <!-- Right Side: Clean Stationery Message Note Form & Interactive Guestbook Wall -->
+          <div class="lg:col-span-6 bg-surface-container-low p-6 sm:p-8 rounded-2xl border border-outline-variant/30 shadow-inner flex flex-col justify-between space-y-6">
+            
+            <div>
+              <div class="flex items-center justify-between pb-2 mb-4 border-b border-outline-variant/20">
+                <span class="text-xs font-bold uppercase text-secondary">Leave a Note in the Scrapbook</span>
+                <span class="text-[11px] font-mono text-outline">RESPONSE &sim; 24H</span>
+              </div>
+
+              <!-- Form -->
+              <form class="space-y-4" id="contactForm" onsubmit="handleFormSubmit(event)">
+                <div>
+                  <label class="block text-xs font-bold uppercase text-on-surface-variant mb-1">Your Name</label>
+                  <input type="text" id="form-name" required placeholder="e.g. Maya Lin" class="w-full px-3.5 py-2.5 rounded-xl bg-surface-container-lowest text-on-surface text-sm border border-outline-variant/30 focus:outline-none focus:ring-2 focus:ring-primary shadow-xs transition-all"/>
+                </div>
+
+                <div>
+                  <label class="block text-xs font-bold uppercase text-on-surface-variant mb-1">Your Email</label>
+                  <input type="email" id="form-email" required placeholder="maya@example.com" class="w-full px-3.5 py-2.5 rounded-xl bg-surface-container-lowest text-on-surface text-sm border border-outline-variant/30 focus:outline-none focus:ring-2 focus:ring-primary shadow-xs transition-all"/>
+                </div>
+
+                <div>
+                  <label class="block text-xs font-bold uppercase text-on-surface-variant mb-1">Project or Message</label>
+                  <textarea id="form-msg" required rows="3" placeholder="Tell me what you’re thinking about, whether it's an SDE role, collaboration, or a technical question..." class="w-full px-3.5 py-2.5 rounded-xl bg-surface-container-lowest text-on-surface text-sm border border-outline-variant/30 focus:outline-none focus:ring-2 focus:ring-primary shadow-xs transition-all"></textarea>
+                </div>
+
+                <button type="submit" id="submitNoteBtn" class="w-full py-3 bg-primary text-on-primary rounded-xl text-xs font-bold uppercase tracking-wider hover:bg-primary-container transition-all shadow-xs flex items-center justify-center gap-2 active:translate-y-0.5">
+                  <span>Pin Note to Scrapbook</span>
+                  <span class="material-symbols-outlined text-[16px]">push_pin</span>
+                </button>
+              </form>
+
+              <!-- Feedback Confirmation -->
+              <div id="formSuccessMessage" class="hidden mt-4 p-4 bg-secondary-container text-on-secondary-container rounded-xl text-center text-sm border border-secondary/20 shadow-xs">
+                <span class="font-bold">&check; Thank you!</span> Your note has been pinned to the journal. I'll get back to you shortly.
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
   </main>
 
-  <footer>
-    <div class="container">
-      © <span id="year"></span> Lavanya Pandit — Designed and developed with a focus on software, AI, and meaningful products.
+  <!-- ========================================== -->
+  <!-- MODAL: DETAILED CASE STUDY VIEWER          -->
+  <!-- ========================================== -->
+  <div class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4 sm:p-6" id="projectModalContainer">
+    <div class="bg-surface-container-lowest rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative p-6 sm:p-10 border border-outline-variant/40" id="modalCard">
+      
+      <!-- Close Button -->
+      <button onclick="closeModal()" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface flex items-center justify-center transition-colors border border-outline-variant/30">
+        <span class="material-symbols-outlined text-[20px]">close</span>
+      </button>
+
+      <!-- Dynamic Modal Content Injection Target -->
+      <div id="modalBody"></div>
+
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- FOOTER                                     -->
+  <!-- ========================================== -->
+  <footer class="w-full bg-surface-container-low border-t border-outline-variant/20 py-12 mt-16 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-xl bg-secondary-container text-on-secondary-container flex items-center justify-center">
+          <span class="material-symbols-outlined text-[18px]">eco</span>
+        </div>
+        <p class="font-serif italic text-sm text-on-surface-variant">
+          Designed with curiosity. Built with code · <span class="font-sans font-bold text-primary not-italic">Lavanya Pandit</span>
+        </p>
+      </div>
+
+      <div class="flex items-center gap-6">
+        <span class="text-xs font-mono text-on-surface-variant uppercase tracking-wider">Vol. 2026 · Curated Notebook</span>
+        <a href="#hero" class="text-xs font-bold text-primary hover:text-secondary uppercase tracking-wider underline decoration-dotted underline-offset-4 transition-colors">Back to Top &uarr;</a>
+      </div>
     </div>
   </footer>
 
-  <button id="top-btn" type="button" aria-label="Back to top">↑</button>
+  <!-- ========================================================= -->
+  <!-- SCRIPTS: THREE.JS, INTERACTIVE DEMOS, AUDIO & GUESTBOOK   -->
+  <!-- ========================================================= -->
+  <script src="https://ajax.googleapis.com/ajax/libs/threejs/r128/three.min.js"></script>
 
-  <script src="js/script.js"></script>
+  <script>
+    /* =========================================================
+       1. GLOBAL AUDIO SYNTHESIZER (Pleasant Tactile Clicks)
+       ========================================================= */
+    let audioEnabled = false;
+    let audioCtx = null;
+
+    function initAudio() {
+      if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      }
+    }
+
+    function toggleAudio() {
+      audioEnabled = !audioEnabled;
+      const icon = document.getElementById('soundIcon');
+      if (audioEnabled) {
+        initAudio();
+        icon.innerText = 'volume_up';
+        playPaperSound(600, 0.08);
+      } else {
+        icon.innerText = 'volume_off';
+      }
+    }
+
+    function playPaperSound(freq = 440, duration = 0.05) {
+      if (!audioEnabled || !audioCtx) return;
+      try {
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+        gain.gain.setValueAtTime(0.04, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + duration);
+      } catch (e) {
+        // AudioContext suspended or blocked
+      }
+    }
+
+    /* =========================================================
+       2. READING PROGRESS BAR & SCROLLSPY
+       ========================================================= */
+    window.addEventListener('scroll', () => {
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      const bar = document.getElementById('progress-ribbon');
+      if (bar) bar.style.width = scrolled + '%';
+
+      // Scrollspy active state
+      const sections = ['hero', 'about', 'projects', 'skills', 'beyond-code', 'contact'];
+      let currentSec = 'hero';
+      sections.forEach(secId => {
+        const el = document.getElementById(secId);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= 140 && rect.bottom >= 140) {
+            currentSec = secId;
+          }
+        }
+      });
+
+      document.querySelectorAll('.nav-pill').forEach(pill => {
+        const href = pill.getAttribute('href').replace('#', '');
+        if (href === currentSec) {
+          pill.classList.add('active');
+        } else {
+          pill.classList.remove('active');
+        }
+      });
+    });
+
+    /* =========================================================
+       3. THREE.JS 3D HERO SCULPTURE WITH INTERACTIVE DRAG & PULSE
+       ========================================================= */
+    let heroScene, heroCamera, heroRenderer, heroGroup, heroParticles;
+    let isDragging = false;
+    let prevMousePos = { x: 0, y: 0 };
+    let rotVelocity = { x: 0, y: 0 };
+    let clock = new THREE.Clock();
+
+    function initThreeHero() {
+      const container = document.getElementById('threejs-hero-container');
+      if (!container || typeof THREE === 'undefined') return;
+
+      const width = container.clientWidth || 340;
+      const height = container.clientHeight || 340;
+
+      heroScene = new THREE.Scene();
+      heroCamera = new THREE.PerspectiveCamera(45, width / height, 0.1, 100);
+      heroCamera.position.set(0, 0, 7.5);
+
+      heroRenderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+      heroRenderer.setSize(width, height);
+      heroRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      heroRenderer.shadowMap.enabled = true;
+      heroRenderer.shadowMap.type = THREE.PCFSoftShadowMap;
+      container.appendChild(heroRenderer.domElement);
+
+      // Warm Natural Studio Lights
+      const ambientLight = new THREE.AmbientLight(0xfffef5, 1.4);
+      heroScene.add(ambientLight);
+
+      const keyLight = new THREE.DirectionalLight(0xf7f5eb, 2.4);
+      keyLight.position.set(5, 8, 6);
+      heroScene.add(keyLight);
+
+      const fillLight = new THREE.DirectionalLight(0xa3b18a, 1.2);
+      fillLight.position.set(-6, -3, 3);
+      heroScene.add(fillLight);
+
+      const rimLight = new THREE.PointLight(0xf2e8a7, 1.8, 15);
+      rimLight.position.set(2, -4, 4);
+      heroScene.add(rimLight);
+
+      // Group for tactile clay elements
+      heroGroup = new THREE.Group();
+      heroScene.add(heroGroup);
+
+      // Materials
+      const sageClayMat = new THREE.MeshStandardMaterial({
+        color: 0x588157,
+        roughness: 0.65,
+        metalness: 0.05
+      });
+      const ivoryMat = new THREE.MeshStandardMaterial({
+        color: 0xfcfbf4,
+        roughness: 0.45,
+        metalness: 0.08
+      });
+      const paleClayMat = new THREE.MeshStandardMaterial({
+        color: 0xa3b18a,
+        roughness: 0.7,
+        metalness: 0.02
+      });
+      const butterMat = new THREE.MeshStandardMaterial({
+        color: 0xf2e8a7,
+        roughness: 0.5,
+        metalness: 0.05
+      });
+      const forestMat = new THREE.MeshStandardMaterial({
+        color: 0x344e41,
+        roughness: 0.8,
+        metalness: 0.1
+      });
+
+      // 1. Central Mobius Torus
+      const mainRingGeo = new THREE.TorusGeometry(1.5, 0.38, 36, 100);
+      const mainRing = new THREE.Mesh(mainRingGeo, sageClayMat);
+      mainRing.rotation.x = Math.PI / 3.5;
+      mainRing.rotation.y = Math.PI / 6;
+      heroGroup.add(mainRing);
+
+      // 2. Nested Ivory Sphere
+      const sphereGeo = new THREE.SphereGeometry(0.72, 48, 48);
+      const sphere = new THREE.Mesh(sphereGeo, ivoryMat);
+      sphere.position.set(-0.2, 0.1, 0.3);
+      heroGroup.add(sphere);
+
+      // 3. Floating Sage Disc
+      const discGeo = new THREE.CylinderGeometry(0.55, 0.55, 0.08, 48);
+      const disc = new THREE.Mesh(discGeo, paleClayMat);
+      disc.position.set(1.4, -1.0, 0.8);
+      disc.rotation.x = 0.8;
+      disc.rotation.z = -0.5;
+      heroGroup.add(disc);
+
+      // 4. Butter-Yellow Bead
+      const beadGeo = new THREE.SphereGeometry(0.28, 32, 32);
+      const bead = new THREE.Mesh(beadGeo, butterMat);
+      bead.position.set(-1.3, 1.2, 0.6);
+      heroGroup.add(bead);
+
+      // 5. Deep Forest Facet Gem
+      const facetGeo = new THREE.IcosahedronGeometry(0.42, 0);
+      const facet = new THREE.Mesh(facetGeo, forestMat);
+      facet.position.set(1.2, 1.3, -0.4);
+      heroGroup.add(facet);
+
+      // 6. Floating Ambient Botanical Dust Particles
+      const particleGeo = new THREE.BufferGeometry();
+      const particleCount = 45;
+      const posArray = new Float32Array(particleCount * 3);
+      for (let i = 0; i < particleCount * 3; i++) {
+        posArray[i] = (Math.random() - 0.5) * 8;
+      }
+      particleGeo.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+      const particleMat = new THREE.PointsMaterial({
+        size: 0.06,
+        color: 0x8fa882,
+        transparent: true,
+        opacity: 0.6
+      });
+      heroParticles = new THREE.Points(particleGeo, particleMat);
+      heroScene.add(heroParticles);
+
+      // Interactive Mouse / Drag Handlers
+      container.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        prevMousePos = { x: e.clientX, y: e.clientY };
+        playPaperSound(520, 0.04);
+      });
+
+      window.addEventListener('mouseup', () => {
+        isDragging = false;
+      });
+
+      window.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        const deltaX = e.clientX - prevMousePos.x;
+        const deltaY = e.clientY - prevMousePos.y;
+        rotVelocity.y += deltaX * 0.005;
+        rotVelocity.x += deltaY * 0.005;
+        prevMousePos = { x: e.clientX, y: e.clientY };
+      });
+
+      // Click to Pulse Sculpture
+      container.addEventListener('click', () => {
+        pulseSculpture();
+      });
+
+      // Responsive Resize
+      window.addEventListener('resize', () => {
+        if (!container || !heroRenderer || !heroCamera) return;
+        const w = container.clientWidth;
+        const h = container.clientHeight;
+        heroCamera.aspect = w / h;
+        heroCamera.updateProjectionMatrix();
+        heroRenderer.setSize(w, h);
+      });
+
+      animateHero();
+    }
+
+    function pulseSculpture() {
+      if (!heroGroup) return;
+      playPaperSound(680, 0.1);
+      let scale = 1.0;
+      let targetScale = 1.15;
+      const startTime = performance.now();
+      
+      function step() {
+        const elapsed = (performance.now() - startTime) / 1000;
+        if (elapsed < 0.15) {
+          const t = elapsed / 0.15;
+          const s = 1.0 + (targetScale - 1.0) * Math.sin(t * Math.PI * 0.5);
+          heroGroup.scale.set(s, s, s);
+          requestAnimationFrame(step);
+        } else if (elapsed < 0.45) {
+          const t = (elapsed - 0.15) / 0.3;
+          const s = targetScale - (targetScale - 1.0) * Math.sin(t * Math.PI * 0.5);
+          heroGroup.scale.set(s, s, s);
+          requestAnimationFrame(step);
+        } else {
+          heroGroup.scale.set(1, 1, 1);
+        }
+      }
+      step();
+    }
+
+    function resetHeroCamera() {
+      if (!heroGroup) return;
+      playPaperSound(440, 0.05);
+      heroGroup.rotation.set(0, 0, 0);
+      rotVelocity = { x: 0, y: 0 };
+    }
+
+    function animateHero() {
+      requestAnimationFrame(animateHero);
+      const elapsed = clock.getElapsedTime();
+
+      // Apply drag inertia with damping
+      heroGroup.rotation.y += rotVelocity.y + 0.004;
+      heroGroup.rotation.x += rotVelocity.x;
+      rotVelocity.x *= 0.92;
+      rotVelocity.y *= 0.92;
+
+      // Gentle natural breathing
+      heroGroup.position.y = Math.sin(elapsed * 0.8) * 0.08;
+
+      if (heroParticles) {
+        heroParticles.rotation.y = elapsed * 0.03;
+      }
+
+      heroRenderer.render(heroScene, heroCamera);
+    }
+
+    /* =========================================================
+       4. INTERACTIVE DEMO 1: KANBAN BOARD SIMULATOR
+       ========================================================= */
+    function moveKanbanCard(cardEl, currentStage) {
+      playPaperSound(580, 0.06);
+      const colApplied = document.getElementById('col-applied');
+      const colInterviewing = document.getElementById('col-interviewing');
+      const colOffer = document.getElementById('col-offer');
+
+      cardEl.classList.add('scale-95', 'opacity-70');
+      
+      setTimeout(() => {
+        cardEl.classList.remove('scale-95', 'opacity-70');
+        
+        if (currentStage === 'applied') {
+          colInterviewing.appendChild(cardEl);
+          cardEl.setAttribute('onclick', "moveKanbanCard(this, 'interviewing')");
+          cardEl.className = "p-2.5 bg-secondary-fixed/40 hover:bg-secondary-fixed/60 rounded-lg text-xs font-medium text-primary cursor-pointer border border-secondary/30 transition-all hover:scale-[1.02]";
+        } else if (currentStage === 'interviewing') {
+          colOffer.appendChild(cardEl);
+          cardEl.setAttribute('onclick', "moveKanbanCard(this, 'offer')");
+          cardEl.className = "p-2.5 bg-tertiary-fixed/50 hover:bg-tertiary-fixed/70 rounded-lg text-xs font-semibold text-primary cursor-pointer border border-tertiary/40 transition-all hover:scale-[1.02]";
+        } else {
+          colApplied.appendChild(cardEl);
+          cardEl.setAttribute('onclick', "moveKanbanCard(this, 'applied')");
+          cardEl.className = "p-2.5 bg-surface-container-low hover:bg-surface-container rounded-lg text-xs font-medium text-primary cursor-pointer border border-outline-variant/20 transition-all hover:scale-[1.02]";
+        }
+        
+        updateKanbanCounts();
+      }, 120);
+    }
+
+    function updateKanbanCounts() {
+      const cApp = document.getElementById('col-applied')?.children.length || 0;
+      const cInt = document.getElementById('col-interviewing')?.children.length || 0;
+      const cOff = document.getElementById('col-offer')?.children.length || 0;
+
+      document.getElementById('count-applied').innerText = cApp;
+      document.getElementById('count-interviewing').innerText = cInt;
+      document.getElementById('count-offer').innerText = cOff;
+
+      const total = cApp + cInt + cOff;
+      const rate = total > 0 ? (((cInt + cOff) / total) * 100).toFixed(1) : 0;
+      const metricEl = document.getElementById('velocity-metric');
+      if (metricEl) metricEl.innerText = rate + '%';
+    }
+
+    /* =========================================================
+       5. INTERACTIVE DEMO 2: AI RESUME MATCHER SIMULATOR
+       ========================================================= */
+    const rolePresets = {
+      backend: {
+        score: "88.4%",
+        cv: "Architected high-throughput services utilizing <mark class='bg-secondary-container text-on-secondary-container px-1 rounded font-semibold transition-colors duration-200' data-token='spring'>Java Spring Boot</mark> and relational storage via <mark class='bg-secondary-container text-on-secondary-container px-1 rounded font-semibold transition-colors duration-200' data-token='postgres'>PostgreSQL</mark>. Implemented <mark class='bg-secondary-container text-on-secondary-container px-1 rounded font-semibold transition-colors duration-200' data-token='rest'>REST API</mark> endpoints with stateless JWT security.",
+        spec: "Seeking a developer with strong mastery of <mark class='bg-secondary-container text-on-secondary-container px-1 rounded font-semibold transition-colors duration-200' data-token='spring'>Java</mark>, solid grasp of <mark class='bg-secondary-container text-on-secondary-container px-1 rounded font-semibold transition-colors duration-200' data-token='postgres'>PostgreSQL</mark>, and experience deploying with <mark class='bg-tertiary-fixed text-on-tertiary-fixed px-1 rounded font-semibold transition-colors duration-200' data-token='docker'>Docker Containers</mark>.",
+        pills: [
+          { text: "✓ Spring Boot (1.00)", token: "spring", type: "match" },
+          { text: "✓ PostgreSQL (0.96)", token: "postgres", type: "match" },
+          { text: "✓ REST APIs (0.92)", token: "rest", type: "match" },
+          { text: "! Docker (Gap Flagged)", token: "docker", type: "gap" }
+        ]
+      },
+      cv: {
+        score: "92.1%",
+        cv: "Engineered real-time perception models with <mark class='bg-secondary-container text-on-secondary-container px-1 rounded font-semibold transition-colors duration-200' data-token='opencv'>OpenCV</mark> and <mark class='bg-secondary-container text-on-secondary-container px-1 rounded font-semibold transition-colors duration-200' data-token='mediapipe'>MediaPipe</mark>. Implemented Euclidean metric filtering with EMA smoothing for high-framerate processing.",
+        spec: "Looking for an engineer proficient in <mark class='bg-secondary-container text-on-secondary-container px-1 rounded font-semibold transition-colors duration-200' data-token='opencv'>OpenCV Python</mark>, <mark class='bg-secondary-container text-on-secondary-container px-1 rounded font-semibold transition-colors duration-200' data-token='mediapipe'>MediaPipe</mark> gesture pipelines, and mathematical smoothing.",
+        pills: [
+          { text: "✓ OpenCV (1.00)", token: "opencv", type: "match" },
+          { text: "✓ MediaPipe (0.98)", token: "mediapipe", type: "match" },
+          { text: "✓ EMA Filters (0.95)", token: "ema", type: "match" },
+          { text: "! C++ Bindings (Gap Flagged)", token: "cpp", type: "gap" }
+        ]
+      },
+      cloud: {
+        score: "68.5%",
+        cv: "Containerized Spring Boot microservices with multi-stage Dockerfiles. Configured continuous integration workflows and health monitoring endpoints.",
+        spec: "Seeking DevOps specialist with production <mark class='bg-tertiary-fixed text-on-tertiary-fixed px-1 rounded font-semibold transition-colors duration-200' data-token='k8s'>Kubernetes</mark>, <mark class='bg-tertiary-fixed text-on-tertiary-fixed px-1 rounded font-semibold transition-colors duration-200' data-token='terraform'>Terraform</mark>, and AWS VPC infrastructure architecture.",
+        pills: [
+          { text: "✓ Docker (0.94)", token: "docker", type: "match" },
+          { text: "! Kubernetes (Gap Flagged)", token: "k8s", type: "gap" },
+          { text: "! Terraform (Gap Flagged)", token: "terraform", type: "gap" }
+        ]
+      }
+    };
+
+    function updateResumeSimulation(roleKey) {
+      playPaperSound(490, 0.05);
+      const data = rolePresets[roleKey];
+      if (!data) return;
+
+      document.getElementById('match-score-text').innerText = data.score + " Match";
+      document.getElementById('cv-text-preview').innerHTML = data.cv;
+      document.getElementById('spec-text-preview').innerHTML = data.spec;
+
+      const container = document.getElementById('token-pill-container');
+      container.innerHTML = data.pills.map(p => {
+        const bg = p.type === 'match' ? 'bg-secondary-container text-on-secondary-container' : 'bg-tertiary-fixed text-on-tertiary-fixed';
+        return `<button onclick="highlightToken('${p.token}')" class="px-2.5 py-1 rounded-lg ${bg} font-semibold transition-transform hover:scale-105">${p.text}</button>`;
+      }).join('');
+    }
+
+    function highlightToken(token) {
+      playPaperSound(640, 0.04);
+      const marks = document.querySelectorAll(`mark[data-token="${token}"]`);
+      marks.forEach(m => {
+        m.classList.add('ring-2', 'ring-primary', 'scale-105');
+        setTimeout(() => {
+          m.classList.remove('ring-2', 'ring-primary', 'scale-105');
+        }, 800);
+      });
+    }
+
+    /* =========================================================
+       6. INTERACTIVE DEMO 3: GESTURE CONTROLLER SANDBOX
+       ========================================================= */
+    function simulateHandMovement(e) {
+      const screen = document.getElementById('gesture-screen');
+      if (!screen) return;
+      const rect = screen.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width;
+      const y = (e.clientY - rect.top) / rect.height;
+
+      // Move tips dynamically
+      const thumbTip = document.getElementById('thumb-tip');
+      const indexTip = document.getElementById('index-tip');
+      const line = document.getElementById('euclidean-line');
+
+      if (thumbTip && indexTip && line) {
+        const thumbX = 20 + (x - 0.5) * 15;
+        const thumbY = 40 + (y - 0.5) * 15;
+        const indexX = 35 - (x - 0.5) * 10;
+        const indexY = 18 + (y - 0.5) * 20;
+
+        thumbTip.setAttribute('cx', thumbX);
+        thumbTip.setAttribute('cy', thumbY);
+        indexTip.setAttribute('cx', indexX);
+        indexTip.setAttribute('cy', indexY);
+
+        line.setAttribute('x1', thumbX);
+        line.setAttribute('y1', thumbY);
+        line.setAttribute('x2', indexX);
+        line.setAttribute('y2', indexY);
+
+        const dx = indexX - thumbX;
+        const dy = indexY - thumbY;
+        const dist = Math.round(Math.sqrt(dx * dx + dy * dy) * 1.5);
+
+        const distLabel = document.getElementById('euclidean-distance-label');
+        if (distLabel) distLabel.innerText = `Δ PINCH: ${dist}px`;
+
+        const vol = Math.min(100, Math.max(0, Math.round((dist / 60) * 100)));
+        const statusLabel = document.getElementById('gesture-status-label');
+        if (statusLabel) statusLabel.innerText = `VOL_CONTROL: ${vol}%`;
+      }
+    }
+
+    function testGesture(type) {
+      playPaperSound(720, 0.08);
+      const statusLabel = document.getElementById('gesture-status-label');
+      const screen = document.getElementById('gesture-screen');
+
+      if (type === 'pinch') {
+        statusLabel.innerText = "ACTION: PINCH TRIGGERED (VOL 85%)";
+      } else if (type === 'swipe') {
+        statusLabel.innerText = "ACTION: SWIPE DETECTED (BRIGHTNESS 90%)";
+      } else if (type === 'fist') {
+        statusLabel.innerText = "ACTION: FIST DETECTED (TOGGLE PLAY/PAUSE)";
+      } else if (type === 'palm') {
+        statusLabel.innerText = "ACTION: OPEN PALM (SCREENSHOT CAPTURED!)";
+        screen.classList.add('brightness-150');
+        setTimeout(() => screen.classList.remove('brightness-150'), 150);
+      }
+    }
+
+    /* =========================================================
+       7. INTERACTIVE SCRAPBOOK STAMP DECK
+       ========================================================= */
+    let currentStamp = 'craft';
+    const stampEmojis = {
+      craft: { text: "🌿 CRAFT", class: "bg-secondary-container text-on-secondary-container border-secondary" },
+      spark: { text: "✨ SPARK", class: "bg-tertiary-fixed text-on-tertiary-fixed border-tertiary" },
+      coffee: { text: "☕ TALK", class: "bg-secondary-fixed text-on-secondary-fixed border-secondary" }
+    };
+
+    function selectStamp(stampType) {
+      currentStamp = stampType;
+      playPaperSound(600, 0.05);
+
+      document.querySelectorAll('.stamp-select-btn').forEach(btn => {
+        btn.classList.remove('ring-2', 'ring-primary');
+      });
+      document.getElementById(`stamp-btn-${stampType}`)?.classList.add('ring-2', 'ring-primary');
+    }
+
+    // Place stamp anywhere when clicking outside interactive buttons
+    document.addEventListener('click', (e) => {
+      // Don't stamp on buttons, inputs, links, canvas
+      if (e.target.closest('button, a, input, textarea, select, #canvas-wrapper, #projectModalContainer')) {
+        return;
+      }
+
+      const stampData = stampEmojis[currentStamp];
+      if (!stampData) return;
+
+      const container = document.getElementById('stamp-container');
+      if (!container) return;
+
+      playPaperSound(480, 0.06);
+
+      const stamp = document.createElement('div');
+      const rot = (Math.random() * 24 - 12).toFixed(1);
+      stamp.className = `placed-stamp px-2.5 py-1 rounded-md border-2 font-mono text-[11px] font-extrabold uppercase shadow-sm ${stampData.class}`;
+      stamp.style.left = `${e.clientX - 35}px`;
+      stamp.style.top = `${e.clientY - 15}px`;
+      stamp.style.setProperty('--stamp-rot', `${rot}deg`);
+      stamp.innerText = stampData.text;
+
+      container.appendChild(stamp);
+    });
+
+    function clearAllStamps() {
+      const container = document.getElementById('stamp-container');
+      if (container) container.innerHTML = '';
+      playPaperSound(320, 0.05);
+    }
+
+    /* =========================================================
+       8. MODAL CASE STUDY VIEWER
+       ========================================================= */
+    const projectCaseStudies = {
+      jobTrackerModal: {
+        category: "FULL-STACK ARCHITECTURE",
+        title: "Job Application Tracker with Analytics",
+        overview: "Job hunting frequently degrades into scattered spreadsheets, missed interview rounds, and unmeasured response rates. This application was architected as a complete end-to-end management console that maintains strict relational integrity for every job inquiry, tracking recruiter touches, and deriving velocity metrics.",
+        problem: "Traditional job spreadsheets fail to enforce foreign key dependencies (like linked contacts or interview stages), provide no real-time telemetry on how long employers take to respond, and have zero validation against stale application states.",
+        features: [
+          "Interactive Kanban pipeline (Applied, Interviewing, Offer, Archived) with drag-and-drop state transitions.",
+          "Automated telemetry measuring response velocity (mean turnaround days per corporate tier).",
+          "Secure stateless authentication using JSON Web Tokens (JWT) and Bcrypt salted passwords.",
+          "RESTful API design following Open-API 3.0 conventions with comprehensive unit test coverage."
+        ],
+        architecture: "Engineered on Java 17 and Spring Boot (Spring MVC, Spring Data JPA, Spring Security). Relational persistence is hosted on PostgreSQL with normalized third-normal-form schemas. The reactive frontend is built using component-driven React with clean Tailwind utility stylings.",
+        lessons: "Gained hands-on expertise managing complex JPA entity cascades, tuning PostgreSQL indexes for aggregated analytic queries, and cleanly handling JWT token expirations without disrupting active candidate workflow."
+      },
+      resumeMatcherModal: {
+        category: "AI & TEXT PROCESSING",
+        title: "AI Resume Matcher",
+        overview: "A lightweight, privacy-first desktop application designed to bridge the gap between job descriptions and technical resumes. It performs instant TF-IDF vector transformations to quantify semantic overlap, helping candidates identify blind spots before submitting.",
+        problem: "Manual comparison of technical requirements against dense CV bullet points is exhausting and prone to missing key technologies or keyword variants required by automated applicant tracking systems.",
+        features: [
+          "Real-time dual-document lexical and semantic vector analysis using scikit-learn.",
+          "Color-coded affinity token mapping (Sage green for matches, Butter yellow for critical skill gaps).",
+          "Deterministic Cosine Similarity score generator with breakdown by category (Languages, Databases, Frameworks).",
+          "Privacy-first execution: all parsing and processing occur locally without transmitting sensitive PII."
+        ],
+        architecture: "Python 3.10 microservice built with FastAPI, utilizing scikit-learn's TfidfVectorizer, NLTK tokenization pipelines, and regex-based token boundary filters. Interactive dashboard driven by lightweight modern web views.",
+        lessons: "Learned the subtleties of text preprocessing: lemmatization, stopword removal, and handling n-grams to distinguish between terms like 'Java' and 'JavaScript' with high accuracy."
+      },
+      gestureControllerModal: {
+        category: "COMPUTER VISION & HCI",
+        title: "Gesture-Based Media Controller",
+        overview: "A zero-hardware touchless interface that turns ordinary laptop webcams into intuitive gesture controllers. Controls audio amplitude, screen brightness, playback states, and screenshots without physical peripherals.",
+        problem: "While cooking, studying with messy hands, or presenting from a distance, interacting with laptop keys is cumbersome and inconvenient.",
+        features: [
+          "Continuous volume control via Euclidean distance between Index and Thumb tip landmarks.",
+          "Vertical hand translation heuristics to calibrate screen luminance smoothly.",
+          "Pose state machine (Fist vs Open Hand) with debounce timers to toggle Play/Pause.",
+          "Timed open-palm hold to trigger instant screen capture saved to local archival disk.",
+          "Exponential Moving Average (EMA) algorithmic smoothing to eradicate camera jitter."
+        ],
+        architecture: "Python 3.9 utilizing OpenCV for high-framerate camera capture, Google MediaPipe for 21 3D hand skeletal landmark tracking, Pycaw for Windows Core Audio Endpoint manipulation, and PyAutoGUI for OS event dispatching.",
+        lessons: "Discovered the reality of hardware noise in computer vision: raw landmark distances fluctuate naturally due to lighting. Designing a mathematical hysteresis band and exponential smoothing filter was essential to eliminate erratic volume jitter."
+      }
+    };
+
+    function openModal(projectId) {
+      playPaperSound(540, 0.08);
+      const data = projectCaseStudies[projectId];
+      if (!data) return;
+
+      const modalBody = document.getElementById('modalBody');
+      modalBody.innerHTML = `
+        <div class="space-y-6">
+          <div>
+            <span class="text-xs font-bold font-mono uppercase text-secondary tracking-widest">${data.category}</span>
+            <h2 class="font-serif text-3xl sm:text-4xl text-primary mt-1 font-semibold">${data.title}</h2>
+          </div>
+
+          <div class="p-4 bg-surface-container-low rounded-2xl border border-outline-variant/30">
+            <h4 class="text-xs font-bold uppercase text-primary mb-1">Executive Summary</h4>
+            <p class="text-sm text-on-surface leading-relaxed">${data.overview}</p>
+          </div>
+
+          <div>
+            <h4 class="text-xs font-bold uppercase text-secondary mb-1">The Problem</h4>
+            <p class="text-sm text-on-surface-variant leading-relaxed">${data.problem}</p>
+          </div>
+
+          <div>
+            <h4 class="text-xs font-bold uppercase text-secondary mb-2">Key Engineering Features</h4>
+            <ul class="space-y-2">
+              ${data.features.map(f => `
+                <li class="flex items-start gap-2 text-sm text-on-surface">
+                  <span class="text-secondary font-bold text-base leading-none">&bull;</span>
+                  <span>${f}</span>
+                </li>
+              `).join('')}
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="text-xs font-bold uppercase text-secondary mb-1">Architecture & Tech Stack</h4>
+            <p class="text-sm text-on-surface-variant leading-relaxed">${data.architecture}</p>
+          </div>
+
+          <div class="p-4 bg-tertiary-fixed/30 rounded-2xl border border-tertiary/20">
+            <h4 class="text-xs font-bold uppercase text-tertiary mb-1">Takeaways & Retrospective</h4>
+            <p class="font-serif italic text-sm text-on-surface">${data.lessons}</p>
+          </div>
+        </div>
+      `;
+
+      const container = document.getElementById('projectModalContainer');
+      container.classList.remove('hidden');
+      container.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      playPaperSound(420, 0.05);
+      const container = document.getElementById('projectModalContainer');
+      container.classList.add('hidden');
+      container.classList.remove('flex');
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById('projectModalContainer')?.addEventListener('click', function(e) {
+      if (e.target === this) closeModal();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    });
+
+    /* =========================================================
+       9. CLIPBOARD COPY & GUESTBOOK FORM
+       ========================================================= */
+    function copyEmailToClipboard() {
+      const email = "lavanya.pandit.dev@gmail.com";
+      playPaperSound(700, 0.08);
+      navigator.clipboard.writeText(email).then(() => {
+        const label = document.getElementById('copyBtnLabel');
+        const icon = document.getElementById('copyIcon');
+        if (label) label.innerText = "Copied!";
+        if (icon) icon.innerText = "check";
+        setTimeout(() => {
+          if (label) label.innerText = "Copy";
+          if (icon) icon.innerText = "content_copy";
+        }, 2200);
+      });
+    }
+
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      playPaperSound(640, 0.1);
+
+      const name = document.getElementById('form-name').value;
+      const msg = document.getElementById('form-msg').value;
+      const btn = document.getElementById('submitNoteBtn');
+      const feedback = document.getElementById('formSuccessMessage');
+
+      if (btn) {
+        btn.disabled = true;
+        btn.innerText = "Pinning Note...";
+      }
+
+      setTimeout(() => {
+        if (btn) btn.classList.add('hidden');
+        if (feedback) feedback.classList.remove('hidden');
+
+        // Add to pinned list
+        const list = document.getElementById('pinnedNotesList');
+        if (list && name && msg) {
+          const item = document.createElement('div');
+          item.className = "p-2.5 bg-tertiary-fixed/40 rounded-lg border border-tertiary/20 text-xs animate-bounce";
+          item.innerHTML = `
+            <div class="flex items-center justify-between font-bold text-primary">
+              <span>${name}</span>
+              <span class="font-mono text-[10px] text-secondary">Just now</span>
+            </div>
+            <p class="text-[11px] text-on-surface mt-0.5 font-serif italic">"${msg}"</p>
+          `;
+          list.prepend(item);
+        }
+      }, 500);
+    }
+
+    /* =========================================================
+       10. MOBILE MENU TOGGLE
+       ========================================================= */
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobileMenu');
+      const icon = document.getElementById('mobileMenuIcon');
+      if (!menu) return;
+
+      const isHidden = menu.classList.contains('hidden');
+      if (isHidden) {
+        menu.classList.remove('hidden');
+        icon.innerText = 'close';
+      } else {
+        menu.classList.add('hidden');
+        icon.innerText = 'menu';
+      }
+    }
+
+    function closeMobileMenu() {
+      const menu = document.getElementById('mobileMenu');
+      const icon = document.getElementById('mobileMenuIcon');
+      if (menu) menu.classList.add('hidden');
+      if (icon) icon.innerText = 'menu';
+    }
+
+    // Initialize Three.js on page load
+    window.addEventListener('DOMContentLoaded', () => {
+      initThreeHero();
+      selectStamp('craft');
+    });
+  </script>
 </body>
 </html>
